@@ -42,18 +42,58 @@
         header {
             background-color: var(--primary-color);
             color: white;
-            padding: 20px;
+            padding: 22px;
             text-align: center;
         }
 
         header h1 {
             font-size: 1.5rem;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
-        header p {
-            font-size: 0.9rem;
-            opacity: 0.85;
+        /* Styling Super Mewah 3D Gold & Logo Bulatan Logam Emas */
+        .developer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 4px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, #112e29 0%, #051c18 100%);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.2), 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .gold-orb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #fffdf0 0%, #ffd700 40%, #b8860b 80%, #654321 100%);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.8), inset 0 1px 2px rgba(255,255,255,0.8);
+            position: relative;
+        }
+
+        .gold-orb::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            width: 4px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+
+        .gold-text {
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+            background: linear-gradient(to bottom, #fffdf0 0%, #ffd700 35%, #daa520 60%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
         }
 
         .content {
@@ -180,7 +220,10 @@
     <div class="container">
         <header>
             <h1>WhatsApp Message & Greeting Studio</h1>
-            <p>Proyek Ke-31: Generator Ucapan Grup WA & Variasi Huruf Unik</p>
+            <div class="developer-badge">
+                <div class="gold-orb"></div>
+                <span class="gold-text">developer : fatur62</span>
+            </div>
         </header>
 
         <div class="content">
@@ -255,30 +298,19 @@
     </div>
 
     <script>
-        // Kumpulan 5+ variasi redaksi bahasa Indonesia untuk belasungkawa (Teks Arab tetap konsisten)
         const condolenceVariations = {
             male: [
-                // Variasi 1
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita yang sedalam-dalamnya atas wafatnya [TARGET].\n\nSemoga Allah SWT mengampuni segala dosa dan kekhilafan almarhum, menerima seluruh amal ibadahnya, melapangkan dan menerangi alam kuburnya, serta menempatkan beliau di tempat yang mulia di sisi-Nya.\n\n[ARAB_DOA]\n\nSemoga keluarga yang ditinggalkan diberikan ketabahan, kesabaran, keikhlasan, dan kekuatan dalam menghadapi musibah ini.\n\nSemoga almarhum [TARGET] husnul khatimah dan mendapatkan tempat terbaik di sisi Allah SWT.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
-                // Variasi 2
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKeluarga besar turut berduka cita atas berpulangnya [TARGET]. \n\nSemoga segala amal ibadah beliau diterima di sisi Allah SWT, diampuni segala khilafnya, dan diberikan ketabahan bagi keluarga yang ditinggalkan.\n\n[ARAB_DOA]\n\nAamiin ya Rabbal 'alamin.\n\n[SENDER]",
-                // Variasi 3
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nInnalillahi wa inna ilaihi raji'un. Turut berbelasungkawa atas wafatnya [TARGET].\n\nSemoga almarhum husnul khatimah, dilapangkan kuburnya, dan keluarga yang ditinggal senantiasa tabah menghadapi takdir ini.\n\n[ARAB_DOA]\n\n[SENDER]",
-                // Variasi 4
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nDuka yang mendalam atas wafatnya [TARGET]. \n\nSemoga Allah SWT memberikan tempat paling indah di sisi-Nya, diampuni segala dosanya, dan keluarga yang ditinggal senantiasa diberi keikhlasan yang luas.\n\n[ARAB_DOA]\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
-                // Variasi 5
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita atas kepergian [TARGET]. Semoga husnul khatimah dan segala kebaikan beliau selama hidup menjadi penolong di yaumul akhir.\n\n[ARAB_DOA]\n\nSemoga keluarga tabah dan ikhlas.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]"
             ],
             female: [
-                // Variasi 1
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita yang sedalam-dalamnya atas wafatnya [TARGET].\n\nSemoga Allah SWT mengampuni segala dosa dan kekhilafan almarhumah, menerima seluruh amal ibadahnya, melapangkan dan menerangi alam kuburnya, serta menempatkan beliau di tempat yang mulia di sisi-Nya.\n\n[ARAB_DOA]\n\nSemoga keluarga yang ditinggalkan diberikan ketabahan, kesabaran, keikhlasan, dan kekuatan dalam menghadapi musibah ini.\n\nSemoga almarhumah [TARGET] husnul khatimah dan mendapatkan tempat terbaik di sisi Allah SWT.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
-                // Variasi 2
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKeluarga besar turut berduka cita atas berpulangnya [TARGET]. \n\nSemoga segala amal ibadah beliau diterima di sisi Allah SWT, diampuni segala khilafnya, dan diberikan ketabahan bagi keluarga yang ditinggalkan.\n\n[ARAB_DOA]\n\nAamiin ya Rabbal 'alamin.\n\n[SENDER]",
-                // Variasi 3
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nInnalillahi wa inna ilaihi raji'un. Turut berbelasungkawa atas wafatnya [TARGET].\n\nSemoga almarhumah husnul khatimah, dilapangkan kuburnya, dan keluarga yang ditinggal senantiasa tabah menghadapi takdir ini.\n\n[ARAB_DOA]\n\n[SENDER]",
-                // Variasi 4
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nDuka yang mendalam atas wafatnya [TARGET]. \n\nSemoga Allah SWT memberikan tempat paling indah di sisi-Nya, diampuni segala dosanya, dan keluarga yang ditinggal senantiasa diberi keikhlasan yang luas.\n\n[ARAB_DOA]\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
-                // Variasi 5
                 "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita atas kepergian [TARGET]. Semoga husnul khatimah dan segala kebaikan beliau selama hidup menjadi penolong di yaumul akhir.\n\n[ARAB_DOA]\n\nSemoga keluarga tabah dan ikhlas.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]"
             ]
         };
@@ -382,7 +414,7 @@
         senderInput.addEventListener('input', () => updateMessage(false));
 
         randomBtn.addEventListener('click', () => {
-            updateMessage(true); // Acak redaksi baru
+            updateMessage(true);
         });
 
         copyBtn.addEventListener('click', async () => {
@@ -413,7 +445,6 @@
             });
         });
 
-        // Inisialisasi awal secara acak
         updateMessage(true);
     </script>
 </body>
