@@ -51,7 +51,6 @@
             margin-bottom: 8px;
         }
 
-        /* Styling Super Mewah 3D Gold & Logo Bulatan Logam Emas */
         .developer-badge {
             display: inline-flex;
             align-items: center;
@@ -227,7 +226,6 @@
         </header>
 
         <div class="content">
-            <!-- Pilihan Template -->
             <div class="form-group">
                 <label for="templateSelect">Pilih Kategori Ucapan</label>
                 <select id="templateSelect">
@@ -235,12 +233,11 @@
                     <option value="condolence_jv">Belasungkawa (Bahasa Jawa Halus + Arab)</option>
                     <option value="birthday_id">Ulang Tahun (Bahasa Indonesia Santai)</option>
                     <option value="birthday_jv">Ulang Tahun (Bahasa Jawa / Ambyar Style)</option>
-                    <option value="eid_id">Hari Raya / Lebaran (Bahasa Indonesia)</option>
+                    <option value="eid_id">Hari Raya / Lebaran (Bahasa Indonesia - Acak Redaksi)</option>
                     <option value="eid_jv">Hari Raya / Lebaran (Bahasa Jawa Krama)</option>
                 </select>
             </div>
 
-            <!-- Opsi Khusus Belasungkawa (Gender Almarhum) -->
             <div class="form-group conditional-group" id="genderGroup">
                 <label for="genderSelect">Jenis Kelamin Almarhum / Almarhumah</label>
                 <select id="genderSelect">
@@ -249,7 +246,6 @@
                 </select>
             </div>
 
-            <!-- Nama Target / Pengirim -->
             <div class="form-group">
                 <label for="targetInput">Nama Almarhum / Yang Berulang Tahun / Penerima</label>
                 <input type="text" id="targetInput" placeholder="Contoh: Bpk. H. Sudirman / Ibu Hj. Desi Rahmawati">
@@ -260,7 +256,6 @@
                 <input type="text" id="senderInput" placeholder="Contoh: Fatur dan kelg">
             </div>
 
-            <!-- Area Teks Hasil -->
             <div class="form-group">
                 <label for="resultText">Hasil Pesan Utama (Klik tombol Acak untuk ganti gaya redaksi)</label>
                 <textarea id="resultText"></textarea>
@@ -276,7 +271,6 @@
 
             <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 5px 0;">
 
-            <!-- Generator Huruf Unik (Unicode) -->
             <div class="form-group">
                 <label>Konversi Variasi Huruf (Klik untuk Terapkan ke Pesan di Atas)</label>
                 <div class="unicode-options">
@@ -300,23 +294,29 @@
     <script>
         const condolenceVariations = {
             male: [
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita yang sedalam-dalamnya atas wafatnya [TARGET].\n\nSemoga Allah SWT mengampuni segala dosa dan kekhilafan almarhum, menerima seluruh amal ibadahnya, melapangkan dan menerangi alam kuburnya, serta menempatkan beliau di tempat yang mulia di sisi-Nya.\n\n[ARAB_DOA]\n\nSemoga keluarga yang ditinggalkan diberikan ketabahan, kesabaran, keikhlasan, dan kekuatan dalam menghadapi musibah ini.\n\nSemoga almarhum [TARGET] husnul khatimah dan mendapatkan tempat terbaik di sisi Allah SWT.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKeluarga besar turut berduka cita atas berpulangnya [TARGET]. \n\nSemoga segala amal ibadah beliau diterima di sisi Allah SWT, diampuni segala khilafnya, dan diberikan ketabahan bagi keluarga yang ditinggalkan.\n\n[ARAB_DOA]\n\nAamiin ya Rabbal 'alamin.\n\n[SENDER]",
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nInnalillahi wa inna ilaihi raji'un. Turut berbelasungkawa atas wafatnya [TARGET].\n\nSemoga almarhum husnul khatimah, dilapangkan kuburnya, dan keluarga yang ditinggal senantiasa tabah menghadapi takdir ini.\n\n[ARAB_DOA]\n\n[SENDER]",
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nDuka yang mendalam atas wafatnya [TARGET]. \n\nSemoga Allah SWT memberikan tempat paling indah di sisi-Nya, diampuni segala dosanya, dan keluarga yang ditinggal senantiasa diberi keikhlasan yang luas.\n\n[ARAB_DOA]\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita atas kepergian [TARGET]. Semoga husnul khatimah dan segala kebaikan beliau selama hidup menjadi penolong di yaumul akhir.\n\n[ARAB_DOA]\n\nSemoga keluarga tabah dan ikhlas.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]"
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita yang sedalam-dalamnya atas wafatnya [TARGET].\n\nSemoga Allah SWT mengampuni segala dosa dan kekhilafan almarhum, menerima seluruh amal ibadahnya, melapangkan dan menerangi alam kuburnya, serta menempatkan beliau di tempat yang mulia di sisi-Nya.\n\n[ARAB_DOA]\n\nSemoga keluarga yang ditinggalkan diberikan ketabahan, kesabaran, keikhlasan, dan kekuatan dalam menghadapi musibah ini.\n\nSemoga almarhum [TARGET] husnul khatimah dan mendapatkan tempat terbaik di sisi Allah SWT.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKeluarga besar turut berduka cita atas berpulangnya [TARGET]. \n\nSemoga segala amal ibadah beliau diterima di sisi Allah SWT, diampuni segala khilafnya, dan diberikan ketabahan bagi keluarga yang ditinggalkan.\n\n[ARAB_DOA]\n\nAamiin ya Rabbal 'alamin.\n\n[SENDER]",
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nInnalillahi wa inna ilaihi raji'un. Turut berbelasungkawa atas wafatnya [TARGET].\n\nSemoga almarhum husnul khatimah, dilapangkan kuburnya, dan keluarga yang ditinggal senantiasa tabah menghadapi takdir ini.\n\n[ARAB_DOA]\n\n[SENDER]",
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nDuka yang mendalam atas wafatnya [TARGET]. \n\nSemoga Allah SWT memberikan tempat paling indah di sisi-Nya, diampuni segala dosanya, dan keluarga yang ditinggal senantiasa diberi keikhlasan yang luas.\n\n[ARAB_DOA]\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita atas kepergian [TARGET]. Semoga husnul khatimah dan segala kebaikan beliau selama hidup menjadi penolong di yaumul akhir.\n\n[ARAB_DOA]\n\nSemoga keluarga tabah dan ikhlas.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]"
             ],
             female: [
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita yang sedalam-dalamnya atas wafatnya [TARGET].\n\nSemoga Allah SWT mengampuni segala dosa dan kekhilafan almarhumah, menerima seluruh amal ibadahnya, melapangkan dan menerangi alam kuburnya, serta menempatkan beliau di tempat yang mulia di sisi-Nya.\n\n[ARAB_DOA]\n\nSemoga keluarga yang ditinggalkan diberikan ketabahan, kesabaran, keikhlasan, dan kekuatan dalam menghadapi musibah ini.\n\nSemoga almarhumah [TARGET] husnul khatimah dan mendapatkan tempat terbaik di sisi Allah SWT.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKeluarga besar turut berduka cita atas berpulangnya [TARGET]. \n\nSemoga segala amal ibadah beliau diterima di sisi Allah SWT, diampuni segala khilafnya, dan diberikan ketabahan bagi keluarga yang ditinggalkan.\n\n[ARAB_DOA]\n\nAamiin ya Rabbal 'alamin.\n\n[SENDER]",
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nInnalillahi wa inna ilaihi raji'un. Turut berbelasungkawa atas wafatnya [TARGET].\n\nSemoga almarhumah husnul khatimah, dilapangkan kuburnya, dan keluarga yang ditinggal senantiasa tabah menghadapi takdir ini.\n\n[ARAB_DOA]\n\n[SENDER]",
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nDuka yang mendalam atas wafatnya [TARGET]. \n\nSemoga Allah SWT memberikan tempat paling indah di sisi-Nya, diampuni segala dosanya, dan keluarga yang ditinggal senantiasa diberi keikhlasan yang luas.\n\n[ARAB_DOA]\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
-                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita atas kepergian [TARGET]. Semoga husnul khatimah dan segala kebaikan beliau selama hidup menjadi penolong di yaumul akhir.\n\n[ARAB_DOA]\n\nSemoga keluarga tabah dan ikhlas.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]"
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita yang sedalam-dalamnya atas wafatnya [TARGET].\n\nSemoga Allah SWT mengampuni segala dosa dan kekhilafan almarhumah, menerima seluruh amal ibadahnya, melapangkan dan menerangi alam kuburnya, serta menempatkan beliau di tempat yang mulia di sisi-Nya.\n\n[ARAB_DOA]\n\nSemoga keluarga yang ditinggalkan diberikan ketabahan, kesabaran, keikhlasan, dan kekuatan dalam menghadapi musibah ini.\n\nSemoga almarhumah [TARGET] husnul khatimah dan mendapatkan tempat terbaik di sisi Allah SWT.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKeluarga besar turut berduka cita atas berpulangnya [TARGET]. \n\nSemoga segala amal ibadah beliau diterima di sisi Allah SWT, diampuni segala khilafnya, dan diberikan ketabahan bagi keluarga yang ditinggalkan.\n\n[ARAB_DOA]\n\nAamiin ya Rabbal 'alamin.\n\n[SENDER]",
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nInnalillahi wa inna ilaihi raji'un. Turut berbelasungkawa atas wafatnya [TARGET].\n\nSemoga almarhumah husnul khatimah, dilapangkan kuburnya, dan keluarga yang ditinggal senantiasa tabah menghadapi takdir ini.\n\n[ARAB_DOA]\n\n[SENDER]",
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nDuka yang mendalam atas wafatnya [TARGET]. \n\nSemoga Allah SWT memberikan tempat paling indah di sisi-Nya, diampuni segala dosanya, dan keluarga yang ditinggal senantiasa diberi keikhlasan yang luas.\n\n[ARAB_DOA]\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
+                "إِينَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita atas kepergian [TARGET]. Semoga husnul khatimah dan segala kebaikan beliau selama hidup menjadi penolong di yaumul akhir.\n\n[ARAB_DOA]\n\nSemoga keluarga tabah dan ikhlas.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]"
             ]
         };
 
         const arabDoaMale = "اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الْأَبْيَضَ مِنَ الدَّنَسِ.";
         const arabDoaFemale = "اللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا، وَعَافِهَا وَاعْفُ عَنْهَا، وَأَكْرِمْ نُزُلَهَا، وَوَسِّعْ مُدْخَلَهَا، وَاغْسِلْهَا بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهَا مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الْأَبْيَضَ مِنَ الدَّنَسِ.";
+
+        const eidVariations = [
+            "🌙✨ SELAMAT HARI RAYA IDUL FITRI ✨🌙\nKagem [TARGET],\n\nتَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ صَالِحَ الْأَعْمَالِ\n\nSemoga Allah menerima seluruh amal ibadah kita, mengampuni segala khilaf dan dosa, serta memberikan keberkahan, kesehatan, dan kebahagiaan untuk kita dan keluarga.\n\nمِنَ الْعَائِدِيْنَ وَالْفَائِزِيْنَ كُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ\n\nMohon maaf lahir dan batin. 🤲\nSemoga kita senantiasa berada dalam rahmat dan ridha Allah SWT. 🌿\n\n[SENDER]",
+            "🌙 Selamat Hari Raya Idul Fitri 1447 H 🌙\nKagem [TARGET],\n\nتَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ \n\nSemoga Allah menerima amal ibadah kita dan menjadikan kita kembali dalam keadaan suci.\n\nتَقَبَّلَ اللَّهُ طَاعَتَكُمْ، وَغَفَرَ اللَّهُ ذُنُوْبَكُمْ\n\nDengan segala kerendahan hati, Mohon maaf lahir dan batin.\nSemoga di hari yang fitri ini, Allah limpahkan keberkahan, kesehatan, ketenteraman, dan kebahagiaan bagi kita semua.\n\nكُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ وَعَافِيَةٍ 🤲✨\n\n[SENDER]",
+            "Taqabbalallahu minna wa minkum, shiyamana wa shiyamakum.\n\nSelamat Hari Raya Idul Fitri Minal Aidin Wal Faizin untuk [TARGET], mohon maaf lahir dan batin atas segala khilaf dan salah baik sengaja maupun tidak.\n\n[SENDER]"
+        ];
 
         const templates = {
             condolence_jv: {
@@ -325,8 +325,14 @@
             },
             birthday_id: "Barakallah fii umrik untuk [TARGET]!\n\nSemoga di usia yang baru ini senantiasa diberikan kesehatan, keberkahan hidup, dimudahkan segala urusannya, serta tercapai semua hajat dan cita-citanya. Aamiin!\n\nSalam hangat,\n[SENDER]",
             birthday_jv: "Sugeng tanggap warsa kagem [TARGET]!\n\nMugi-mugi tansah pinaringan séhat walafiat, berkah rezekipun, panjang umure, lan sembarang kalir kelampahan sedaya gagasane. Aamiin ya Rabbal 'alamin.\n\n[SENDER]",
-            eid_id: "Taqabbalallahu minna wa minkum, shiyamana wa shiyamakum.\n\nSelamat Hari Raya Idul Fitri Minal Aidin Wal Faizin, mohon maaf lahir dan batin atas segala khilaf dan salah baik sengaja maupun tidak.\n\n[SENDER]",
-            eid_jv: "Taqabbalallahu minna wa minkum.\n\nNgaturaken sedoyo sugeng riyadi Idul Fitri. Mohon maaf lahir lan batin bilih wonten kelepatan lampah ucapan kulo sakeluarga. Mugi tansah pinaringan wilujeng.\n\n[SENDER]"
+            eid_jv: "Taqabbalallahu minna wa minkum.\n\nNgaturaken sedoyo sugeng riyadi Idul Fitri kagem [TARGET]. Mohon maaf lahir lan batin bilih wonten kelepatan lampah ucapan kulo sakeluarga. Mugi tansah pinaringan wilujeng.\n\n[SENDER]"
+        };
+
+        const unicodeMaps = {
+            bold: { a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴', h: '𝗵', i: '𝗶', j: '𝗷', k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻', o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁', u: '𝘂', v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇', A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚', H: '𝗛', I: '𝗜', J: '𝗝', K: '𝗞', L: '𝗟', M: '𝗠', N: '𝗡', O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧', U: '𝗨', V: '𝗩', W: '𝗪', X: '𝗫', Y: '𝗬', Z: '𝗭', '0': '𝟬', '1': '𝟭', '2': '𝟮', '3': '𝟯', '4': '𝟰', '5': '𝟱', '6': '𝟲', '7': '𝟳', '8': '𝟴', '9': '𝟵' },
+            italic: { a: '𝘢', b: '𝘣', c: '𝘤', d: '𝘥', e: '𝘦', f: '𝘧', g: '𝘨', h: '𝘩', i: '𝘪', j: '𝘫', k: '𝘬', l: '𝘭', m: '𝘮', n: '𝘯', o: '𝘰', p: '𝘱', q: '𝘲', r: '𝘳', s: '𝘴', t: '𝘵', u: '𝘶', v: '𝘷', w: '𝘸', x: '𝘹', y: '𝘺', z: '𝘻', A: '𝘈', B: '𝘉', C: '𝘊', D: '𝘋', E: '𝘌', F: '𝘍', G: '𝘎', H: '𝘏', I: '𝘐', J: '𝘑', K: '𝘒', L: '🇱', M: '𝘔', N: '𝘕', O: '𝘖', P: '𝘗', Q: '𝘘', R: '𝘙', S: '𝘚', T: '𝘛', U: '𝘜', V: '𝘝', W: '𝘞', X: '𝘟', Y: '𝘠', Z: '𝘡', '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9' },
+            script: { a: '𝒶', b: '𝒷', c: '𝒸', d: '𝒹', e: 'ℯ', f: '𝒻', g: 'ℊ', h: '𝒽', i: '𝒾', j: '𝒿', k: '𝓀', l: '𝓁', m: '𝓂', n: '𝓃', o: 'ℴ', p: '𝓅', q: '𝓆', r: '𝓇', s: '𝓈', t: '𝓉', u: '𝓊', v: '𝓋', w: '𝓌', x: '𝓍', y: '𝓎', z: '𝓏', A: '𝒜', B: 'ℬ', C: '𝒞', D: '𝒟', E: 'ℰ', F: 'ℱ', G: '𝒢', H: 'ℋ', I: 'ℐ', J: '𝒥', K: '𝒦', L: 'ℒ', M: 'ℳ', N: '𝒩', O: '𝒪', P: '𝒫', Q: '𝒬', R: 'ℛ', S: '𝒮', T: '𝒯', U: '𝒰', V: '𝒱', W: '𝒲', X: '𝒳', Y: '𝒴', Z: '𝒵', '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9' },
+            mono: { a: '𝚊', b: '𝚋', c: '𝚌', d: '𝚍', e: '𝚎', f: '𝚏', g: '𝚐', h: '𝚑', i: '𝚒', j: '𝚓', k: '𝚔', l: '𝚕', m: '𝚖', n: '𝚗', o: '𝚘', p: '𝚙', q: '𝚚', r: '𝚛', s: '𝚜', t: '𝚝', u: '𝚞', v: '𝚟', w: '𝚠', x: '𝚡', y: '𝚢', z: '𝚣', A: '𝙰', B: '𝙱', C: '𝙲', D: '𝙳', E: '𝙴', F: '𝙵', G: '𝙶', H: '𝙷', I: '𝙸', J: '𝙹', K: '𝙺', L: '𝙻', M: '𝙼', N: '𝙽', O: '𝙾', P: '𝙿', Q: '𝚀', R: '𝚁', S: '𝚂', T: '𝚃', U: '𝚄', V: '𝚅', W: '𝚆', X: '𝚇', Y: '𝚈', Z: '𝚉', '0': '𝟶', '1': '𝟷', '2': '𝟸', '3': '𝟹', '4': '𝟺', '5': '𝟻', '6': '𝟼', '7': '𝟽', '8': '𝟾', '9': '𝟿' }
         };
 
         const templateSelect = document.getElementById('templateSelect');
@@ -341,13 +347,23 @@
         const copyAlert = document.getElementById('copyAlert');
         const unicodeButtons = document.querySelectorAll('.btn-unicode');
 
-        let currentRandomIndex = 0;
+        let currentCondolenceRandomIndex = 0;
+        let currentEidRandomIndex = 0;
+        let activeUnicodeStyle = null;
+
+        function convertToUnicode(text, style) {
+            if (!style) return text;
+            const map = unicodeMaps[style];
+            if (!map) return text;
+            return text.split('').map(char => map[char] || char).join('');
+        }
 
         function updateMessage(isNewRandom = false) {
             try {
                 const selectedKey = templateSelect.value;
                 const isCondolenceId = selectedKey === 'condolence_id';
                 const isCondolence = selectedKey.startsWith('condolence');
+                const isEidId = selectedKey === 'eid_id';
                 
                 if (isCondolence) {
                     genderGroup.style.display = 'flex';
@@ -355,60 +371,62 @@
                     genderGroup.style.display = 'none';
                 }
 
+                let formatted = "";
+                const target = targetInput.value.trim() || "[NAMA TARGET]";
+                const sender = senderInput.value.trim() ? `Dari: ${senderInput.value.trim()}` : "";
+
                 if (isCondolenceId) {
                     const gender = genderSelect.value;
-                    const listVariasi = condolenceVariations[gender];
+                    const listVariasi = condolenceVariations[gender] || [];
                     
                     if (isNewRandom) {
-                        currentRandomIndex = Math.floor(Math.random() * listVariasi.length);
-                    } else if (currentRandomIndex >= listVariasi.length) {
-                        currentRandomIndex = 0;
+                        currentCondolenceRandomIndex = Math.floor(Math.random() * listVariasi.length);
+                    } else if (currentCondolenceRandomIndex >= listVariasi.length) {
+                        currentCondolenceRandomIndex = 0;
                     }
 
-                    let template = listVariasi[currentRandomIndex];
+                    let template = listVariasi[currentCondolenceRandomIndex] || "";
                     let arabDoa = (gender === 'male') ? arabDoaMale : arabDoaFemale;
                     template = template.replace('[ARAB_DOA]', arabDoa);
 
-                    const target = targetInput.value.trim() || "[NAMA TARGET]";
-                    const sender = senderInput.value.trim() ? `Dari: ${senderInput.value.trim()}` : "";
+                    formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
+                } else if (isEidId) {
+                    if (isNewRandom) {
+                        currentEidRandomIndex = Math.floor(Math.random() * eidVariations.length);
+                    } else if (currentEidRandomIndex >= eidVariations.length) {
+                        currentEidRandomIndex = 0;
+                    }
 
-                    let formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
-                    resultText.value = formatted;
+                    let template = eidVariations[currentEidRandomIndex] || "";
+                    formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
                 } else {
                     let template = "";
                     if (isCondolence) {
                         const gender = genderSelect.value;
-                        template = templates[selectedKey][gender] || "";
+                        template = templates[selectedKey] ? (templates[selectedKey][gender] || "") : "";
                     } else {
                         template = templates[selectedKey] || "";
                     }
 
-                    const target = targetInput.value.trim() || "[NAMA TARGET]";
-                    const sender = senderInput.value.trim() ? `Dari: ${senderInput.value.trim()}` : "";
-
-                    let formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
-                    resultText.value = formatted;
+                    formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
                 }
+
+                if (activeUnicodeStyle) {
+                    formatted = convertToUnicode(formatted, activeUnicodeStyle);
+                }
+
+                resultText.value = formatted;
             } catch (error) {
                 console.error("Gagal memproses template:", error);
                 resultText.value = "Terjadi kesalahan saat memuat templat.";
             }
         }
 
-        const unicodeMaps = {
-            bold: { a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴', h: '𝗵', i: '𝗶', j: '𝗷', k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻', o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁', u: '𝘂', v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇', A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚', H: '𝗛', I: '𝗜', J: '𝗝', K: '𝗞', L: '𝗟', M: '𝗠', N: '𝗡', O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧', U: '𝗨', V: '𝗩', W: '𝗪', X: '𝗫', Y: '𝗬', Z: '𝗭', '0': '𝟬', '1': '𝟭', '2': '𝟮', '3': '𝟯', '4': '𝟰', '5': '𝟱', '6': '𝟲', '7': '𝟩', '8': '𝟪', '9': '𝟿' },
-            italic: { a: '𝘢', b: '𝘣', c: '𝘤', d: '𝘥', e: '𝘦', f: '𝘧', g: '𝘨', h: '𝘩', i: '𝘪', j: '𝘫', k: '𝘬', l: '𝘭', m: '𝘮', n: '𝘯', o: '𝘰', p: '𝘱', q: '𝘲', r: '𝘳', s: '𝘴', t: '𝘵', u: '𝘶', v: '𝘷', w: '𝘸', x: '𝘹', y: '𝘺', z: '𝘻', A: '𝘈', B: '𝘉', C: '𝘊', D: '𝘋', E: '𝘌', F: '𝘍', G: '𝘎', H: '𝘏', I: '𝘐', J: '𝘑', K: '𝘒', L: '𝘓', M: '𝘔', N: '𝘕', O: '𝘖', P: '𝘗', Q: '𝘘', R: '𝘙', S: '𝘚', T: '𝘛', U: '𝘜', V: '𝘝', W: '𝘞', X: '𝘟', Y: '𝘠', Z: '𝘡' },
-            script: { a: '𝒶', b: '𝒷', c: '𝒸', d: '𝒹', e: 'ℯ', f: '𝒻', g: 'ℊ', h: '𝒽', i: '𝒾', j: '𝒿', k: '𝓀', l: '𝓁', m: '𝓂', n: '𝓃', o: 'ℴ', p: '𝓅', q: '𝓆', r: '𝓇', s: '𝓈', t: '𝓉', u: '𝓊', v: '𝓋', w: '𝓌', x: '𝓍', y: '𝓎', z: '𝓏', A: '𝒜', B: 'ℬ', C: '𝒞', D: '𝒟', E: 'ℰ', F: 'ℱ', G: '𝒢', H: 'ℋ', I: 'ℐ', J: '𝒥', K: '𝒦', L: 'ℒ', M: 'ℳ', N: '𝒩', O: '𝒪', P: '𝒫', Q: '𝒬', R: 'ℛ', S: '𝒮', T: '𝒯', U: '𝒰', V: '𝒱', W: '𝒲', X: '𝒳', Y: '𝒴', Z: '𝒵' },
-            mono: { a: '𝚊', b: '𝚋', c: '𝚌', d: '𝚍', e: '𝚎', f: '𝚏', g: '𝚐', h: '𝚑', i: '𝚒', j: '𝚓', k: '𝚔', l: '𝚕', m: '𝚖', n: '𝚗', o: '𝚘', p: '𝚙', q: '𝚚', r: '𝚛', s: '𝚜', t: '𝚝', u: '𝚞', v: '𝚟', w: '𝚠', x: '𝚡', y: '𝚢', z: '𝚣', A: '𝙰', B: '𝙱', C: '𝙲', D: '𝙳', E: '𝙴', F: '𝙵', G: '𝙶', H: '𝙷', I: '𝙸', J: '𝙹', K: '𝙺', L: '𝙻', M: '𝙼', N: '𝙽', O: '𝙾', P: '𝙿', Q: '𝚀', R: '𝚁', S: '𝚂', T: '𝚃', U: '𝚄', V: '𝚅', W: '𝚆', X: '𝚇', Y: '𝚈', Z: '𝚉' }
-        };
-
-        function convertToUnicode(text, style) {
-            const map = unicodeMaps[style];
-            if (!map) return text;
-            return text.split('').map(char => map[char] || char).join('');
-        }
-
-        templateSelect.addEventListener('change', () => updateMessage(true));
+        templateSelect.addEventListener('change', () => {
+            activeUnicodeStyle = null;
+            updateMessage(true);
+        });
+        
         genderSelect.addEventListener('change', () => updateMessage(true));
         targetInput.addEventListener('input', () => updateMessage(false));
         senderInput.addEventListener('input', () => updateMessage(false));
@@ -435,13 +453,14 @@
             senderInput.value = '';
             templateSelect.selectedIndex = 0;
             genderSelect.selectedIndex = 0;
+            activeUnicodeStyle = null;
             updateMessage(true);
         });
 
         unicodeButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                const style = btn.getAttribute('data-style');
-                resultText.value = convertToUnicode(resultText.value, style);
+                activeUnicodeStyle = btn.getAttribute('data-style');
+                resultText.value = convertToUnicode(resultText.value, activeUnicodeStyle);
             });
         });
 
