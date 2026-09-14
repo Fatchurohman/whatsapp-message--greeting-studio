@@ -6,12 +6,24 @@
     <title>WhatsApp Message & Greeting Studio</title>
     <style>
         :root {
+            /* Header & Brand (Dipertahankan) */
             --primary-color: #075e54;
             --secondary-color: #128c7e;
-            --light-bg: #f0f2f5;
+            
+            /* Theme Gold Mewah */
+            --gold-bg-outer: linear-gradient(135deg, #f7f3e9 0%, #ebe3cf 100%);
             --card-bg: #ffffff;
-            --text-color: #333333;
-            --border-color: #d1d7db;
+            --gold-primary: #b8860b;
+            --gold-secondary: #d4af37;
+            --gold-dark: #8b6508;
+            --gold-light: #fefcf5;
+            --gold-border: #e2c97c;
+            --gold-glow: rgba(212, 175, 55, 0.25);
+
+            /* Typography & Elements */
+            --text-color: #1a1714;
+            --text-muted: #554a3a;
+            --border-color: #dcd3be;
         }
 
         * {
@@ -22,23 +34,26 @@
         }
 
         body {
-            background-color: var(--light-bg);
+            background: var(--gold-bg-outer);
             color: var(--text-color);
             padding: 20px;
             display: flex;
             justify-content: center;
+            min-height: 100vh;
         }
 
         .container {
             width: 100%;
             max-width: 800px;
             background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(184, 134, 11, 0.15), 0 2px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gold-border);
             overflow: hidden;
             margin-top: 10px;
         }
 
+        /* Header Asli Tetap Dipertahankan */
         header {
             background-color: var(--primary-color);
             color: white;
@@ -95,11 +110,13 @@
             filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
         }
 
+        /* Tampilan Bawah (Konten Gold Mewah) */
         .content {
-            padding: 20px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             gap: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);
         }
 
         .form-group {
@@ -109,108 +126,143 @@
         }
 
         label {
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.9rem;
+            color: #3b3021;
         }
 
         select, input, textarea {
-            padding: 10px 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
+            padding: 12px 14px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
             font-size: 1rem;
             outline: none;
-            transition: border-color 0.2s;
+            background-color: #fff;
+            color: var(--text-color);
+            transition: all 0.25s ease;
         }
 
         select:focus, input:focus, textarea:focus {
-            border-color: var(--secondary-color);
+            border-color: var(--gold-secondary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+            background-color: var(--gold-light);
         }
 
         textarea {
             resize: vertical;
             min-height: 180px;
             font-family: inherit;
+            line-height: 1.5;
         }
 
         .conditional-group {
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
+            background: linear-gradient(135deg, #fbf8f0 0%, #f7f0df 100%);
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid var(--gold-border);
             display: none;
         }
 
         .unicode-options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 10px;
+            gap: 12px;
         }
 
         .btn-unicode {
-            background-color: #f7f8f9;
-            border: 1px solid var(--border-color);
-            padding: 10px;
-            border-radius: 6px;
+            background: linear-gradient(180deg, #ffffff 0%, #faf6ec 100%);
+            border: 1px solid var(--gold-border);
+            padding: 12px;
+            border-radius: 8px;
             cursor: pointer;
             text-align: left;
             font-size: 0.85rem;
+            color: var(--text-color);
             transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .btn-unicode:hover {
-            background-color: #e9edef;
-            border-color: var(--secondary-color);
+            background: linear-gradient(180deg, #fffdf7 0%, #f5eacb 100%);
+            border-color: var(--gold-primary);
+            box-shadow: 0 4px 8px var(--gold-glow);
+            transform: translateY(-1px);
         }
 
         .btn-unicode span {
             display: block;
             font-weight: bold;
-            margin-bottom: 2px;
-            color: var(--secondary-color);
+            margin-bottom: 3px;
+            color: var(--gold-dark);
         }
 
         .action-row {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .btn {
             flex: 1;
-            background-color: var(--secondary-color);
+            background: linear-gradient(135deg, #c59b27 0%, #9e7208 100%);
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 14px;
+            border-radius: 8px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: all 0.25s;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(184, 134, 11, 0.3);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .btn:hover {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            box-shadow: 0 6px 14px rgba(184, 134, 11, 0.45);
+            transform: translateY(-1px);
+        }
+
+        .btn-random {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%) !important;
+            box-shadow: 0 4px 10px rgba(44, 62, 80, 0.3) !important;
+        }
+
+        .btn-random:hover {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%) !important;
+            box-shadow: 0 6px 14px rgba(44, 62, 80, 0.45) !important;
         }
 
         .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--secondary-color);
-            color: var(--secondary-color);
+            background: transparent;
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-dark);
+            box-shadow: none;
+            text-shadow: none;
         }
 
         .btn-outline:hover {
-            background-color: var(--secondary-color);
+            background: linear-gradient(135deg, #c59b27 0%, #9e7208 100%);
             color: white;
         }
 
         .alert {
-            padding: 10px;
-            background-color: #d1e7dd;
-            color: #0f5132;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            padding: 12px;
+            background: #f4ebd0;
+            color: #5c4308;
+            border: 1px solid var(--gold-border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
             display: none;
             text-align: center;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid var(--gold-border);
+            margin: 5px 0;
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -263,15 +315,15 @@
                 <textarea id="resultText"></textarea>
             </div>
 
-            <div id="copyAlert" class="alert">Pesan berhasil disalin ke clipboard!</div>
+            <div id="copyAlert" class="alert">✨ Pesan berhasil disalin ke clipboard!</div>
 
             <div class="action-row">
-                <button class="btn" id="randomBtn" style="background-color: #205081;">Acak Redaksi Lagi</button>
+                <button class="btn btn-random" id="randomBtn">Acak Redaksi Lagi</button>
                 <button class="btn" id="copyBtn">Salin Pesan</button>
                 <button class="btn btn-outline" id="resetBtn">Reset</button>
             </div>
 
-            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 5px 0;">
+            <hr>
 
             <div class="form-group">
                 <label>Konversi Variasi Huruf (Klik untuk Terapkan ke Pesan di Atas)</label>
@@ -341,7 +393,7 @@
             bold: { a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴', h: '𝗵', i: '𝗶', j: '𝗷', k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻', o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁', u: '𝘂', v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇', A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚', H: '𝗛', I: '𝗜', J: '𝗝', K: '𝗞', L: '🇱', M: '𝗠', N: '𝗡', O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧', U: '𝗨', V: '𝗩', W: '𝗪', X: '𝗫', Y: '𝗬', Z: '𝗭', '0': '𝟬', '1': '𝟭', '2': '𝟮', '3': '𝟯', '4': '𝟰', '5': '𝟱', '6': '𝟲', '7': '𝟳', '8': '𝟴', '9': '𝟵' },
             italic: { a: '𝘢', b: '𝘣', c: '𝘤', d: '𝘥', e: '𝘦', f: '𝘧', g: '𝘨', h: '𝘩', i: '𝘪', j: '𝘫', k: '𝘬', l: '𝘭', m: '𝘮', n: '𝘯', o: '𝘰', p: '𝘱', q: '𝘲', r: '𝘳', s: '𝘴', t: '𝘵', u: '𝘶', v: '𝘷', w: '𝘸', x: '𝘹', y: '𝘺', z: '𝘻', A: '𝘈', B: '𝘉', C: '𝘊', D: '𝘋', E: '𝘌', F: '𝘍', G: '𝘎', H: '𝐻', I: '𝘐', J: '𝘑', K: '𝘒', L: '🇱', M: '𝘔', N: '𝘕', O: '𝘖', P: '𝘗', Q: '𝘘', R: '𝘙', S: '𝘚', T: '𝘛', U: '𝘜', V: '𝘝', W: '𝘞', X: '𝘟', Y: '𝘠', Z: '𝘡', '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9' },
             script: { a: '𝒶', b: '𝒷', c: '𝒸', d: '𝒹', e: 'ℯ', f: '𝒻', g: 'ℊ', h: '𝒽', i: '𝒾', j: '𝒿', k: '𝓀', l: '𝓁', m: '𝓂', n: '𝓃', o: 'ℴ', p: '𝓅', q: '𝓆', r: '𝓇', s: '𝓈', t: '𝓉', u: '𝓊', v: '𝓋', w: '𝓌', x: '𝓍', y: '𝓎', z: '𝓏', A: '𝒜', B: 'ℬ', C: '𝒞', D: '𝒟', E: 'ℰ', F: 'ℱ', G: '𝒢', H: 'ℋ', I: 'ℐ', J: '𝒥', K: '𝒦', L: 'ℒ', M: 'ℳ', N: '𝒩', O: '𝒪', P: '𝒫', Q: '𝒬', R: 'ℛ', S: '𝒮', T: '𝒯', U: '𝒰', V: '𝒱', W: '𝒲', X: '𝒳', Y: '𝒴', Z: '𝒵', '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9' },
-            mono: { a: '𝚊', b: '𝚋', c: '𝚌', d: '𝚍', e: '𝚎', f: '𝚏', g: '𝚐', h: '𝚑', i: '𝚒', j: '𝚓', k: '𝚔', l: '𝚕', m: '𝚖', n: '𝚗', o: '𝚘', p: '𝚙', q: '𝚚', r: '𝚛', s: '𝚜', t: '𝚝', u: '𝚞', v: '𝚟', w: '𝚠', x: '𝚡', y: '𝚢', z: '𝚣', A: '𝙰', B: '𝙱', C: '𝙲', D: '𝙳', E: '𝙴', F: '𝙵', G: '𝙶', H: '𝙷', I: '𝙸', J: '𝙹', K: '𝙺', L: '𝙻', M: '𝙼', N: '𝙽', O: '𝙾', P: '𝙿', Q: '𝚀', R: '𝚁', S: '𝚂', T: '𝚃', U: '𝚄', V: '𝚅', W: '𝚆', X: '𝚇', Y: '𝚈', Z: '𝚉', '0': '𝟶', '1': '𝟷', '2': '𝟸', '3': '𝟹', '4': '𝟺', '5': '𝟻', '6': '𝟼', '7': '𝟽', '8': '𝟾', '9': '𝟿' }
+            mono: { a: '𝚖', b: '𝚋', c: '𝚌', d: '𝚍', e: '𝚎', f: '𝚏', g: '𝚐', h: '𝚑', i: '𝚒', j: '𝚓', k: '𝚔', l: '𝚕', m: '𝚖', n: '𝚗', o: '𝚘', p: '𝚙', q: '𝚚', r: '𝚛', s: '𝚜', t: '𝚝', u: '𝚞', v: '𝚟', w: '𝚠', x: '𝚡', y: '𝚢', z: '𝚣', A: '𝙰', B: '𝙱', C: '𝙲', D: '𝙳', E: '𝙴', F: '𝙵', G: '𝙶', H: '𝙷', I: '𝙸', J: '𝙹', K: '𝙺', L: '𝙻', M: '𝙼', N: '𝙽', O: '𝙾', P: '𝙿', Q: '𝚠', R: '𝚁', S: '𝚂', T: '𝚃', U: '𝚄', V: '𝚅', W: '𝚆', X: '𝚇', Y: '𝚈', Z: '𝚉', '0': '𝟶', '1': '𝟷', '2': '𝟸', '3': '𝟹', '4': '𝟺', '5': '𝟻', '6': '𝟼', '7': '𝟽', '8': '𝟾', '9': '𝟿' }
         };
 
         const templateSelect = document.getElementById('templateSelect');
@@ -351,121 +403,87 @@
         const senderInput = document.getElementById('senderInput');
         const resultText = document.getElementById('resultText');
         const copyBtn = document.getElementById('copyBtn');
-        const randomBtn = document.getElementById('randomBtn');
         const resetBtn = document.getElementById('resetBtn');
+        const randomBtn = document.getElementById('randomBtn');
         const copyAlert = document.getElementById('copyAlert');
         const unicodeButtons = document.querySelectorAll('.btn-unicode');
 
-        let currentCondolenceRandomIndex = 0;
-        let currentEidRandomIndex = 0;
-        let currentSickRandomIndex = 0;
-        let activeUnicodeStyle = null;
-
-        function convertToUnicode(text, style) {
-            if (!style) return text;
-            const map = unicodeMaps[style];
-            if (!map) return text;
-            return text.split('').map(char => map[char] || char).join('');
+        function getRandomItem(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
         }
 
-        function updateMessage(isNewRandom = false) {
-            try {
-                const selectedKey = templateSelect.value;
-                const isCondolenceId = selectedKey === 'condolence_id';
-                const isCondolence = selectedKey.startsWith('condolence');
-                const isEidId = selectedKey === 'eid_id';
-                const isSickId = selectedKey === 'sick_id';
-                
-                if (isCondolence) {
-                    genderGroup.style.display = 'flex';
-                } else {
-                    genderGroup.style.display = 'none';
-                }
+        function generateMessage() {
+            const category = templateSelect.value;
+            const gender = genderSelect.value;
+            const target = targetInput.value.trim() || '[Nama]';
+            const sender = senderInput.value.trim();
+            const senderFormatted = sender ? `\n\nDari:\n${sender}` : '';
 
-                let formatted = "";
-                const target = targetInput.value.trim() || "[NAMA TARGET]";
-                const sender = senderInput.value.trim() ? `Dari: ${senderInput.value.trim()}` : "";
+            let template = '';
 
-                if (isCondolenceId) {
-                    const gender = genderSelect.value;
-                    const listVariasi = condolenceVariations[gender] || [];
-                    
-                    if (isNewRandom) {
-                        currentCondolenceRandomIndex = Math.floor(Math.random() * listVariasi.length);
-                    } else if (currentCondolenceRandomIndex >= listVariasi.length) {
-                        currentCondolenceRandomIndex = 0;
-                    }
-
-                    let template = listVariasi[currentCondolenceRandomIndex] || "";
-                    let arabDoa = (gender === 'male') ? arabDoaMale : arabDoaFemale;
-                    template = template.replace('[ARAB_DOA]', arabDoa);
-
-                    formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
-                } else if (isEidId) {
-                    if (isNewRandom) {
-                        currentEidRandomIndex = Math.floor(Math.random() * eidVariations.length);
-                    } else if (currentEidRandomIndex >= eidVariations.length) {
-                        currentEidRandomIndex = 0;
-                    }
-
-                    let template = eidVariations[currentEidRandomIndex] || "";
-                    formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
-                } else if (isSickId) {
-                    if (isNewRandom) {
-                        currentSickRandomIndex = Math.floor(Math.random() * sickVariations.length);
-                    } else if (currentSickRandomIndex >= sickVariations.length) {
-                        currentSickRandomIndex = 0;
-                    }
-
-                    let template = sickVariations[currentSickRandomIndex] || "";
-                    formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
-                } else {
-                    let template = "";
-                    if (isCondolence) {
-                        const gender = genderSelect.value;
-                        template = templates[selectedKey] ? (templates[selectedKey][gender] || "") : "";
-                    } else {
-                        template = templates[selectedKey] || "";
-                    }
-
-                    formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
-                }
-
-                if (activeUnicodeStyle) {
-                    formatted = convertToUnicode(formatted, activeUnicodeStyle);
-                }
-
-                resultText.value = formatted;
-            } catch (error) {
-                console.error("Gagal memproses template:", error);
-                resultText.value = "Terjadi kesalahan saat memuat templat.";
+            if (category === 'condolence_id') {
+                const list = condolenceVariations[gender];
+                template = getRandomItem(list);
+                const arabDoa = (gender === 'male') ? arabDoaMale : arabDoaFemale;
+                template = template.replace('[ARAB_DOA]', arabDoa);
+            } else if (category === 'condolence_jv') {
+                template = templates.condolence_jv[gender];
+            } else if (category === 'eid_id') {
+                template = getRandomItem(eidVariations);
+            } else if (category === 'sick_id') {
+                template = getRandomItem(sickVariations);
+            } else {
+                template = templates[category] || '';
             }
+
+            let finalMessage = template
+                .replace(/\[TARGET\]/g, target)
+                .replace('[SENDER]', senderFormatted);
+
+            resultText.value = finalMessage;
+        }
+
+        function checkGenderVisibility() {
+            const cat = templateSelect.value;
+            if (cat === 'condolence_id' || cat === 'condolence_jv') {
+                genderGroup.style.display = 'flex';
+            } else {
+                genderGroup.style.display = 'none';
+            }
+        }
+
+        function convertUnicode(style) {
+            const map = unicodeMaps[style];
+            if (!map) return;
+
+            let currentText = resultText.value;
+            let converted = '';
+
+            for (let char of currentText) {
+                converted += map[char] || char;
+            }
+
+            resultText.value = converted;
         }
 
         templateSelect.addEventListener('change', () => {
-            activeUnicodeStyle = null;
-            updateMessage(true);
-        });
-        
-        genderSelect.addEventListener('change', () => updateMessage(true));
-        targetInput.addEventListener('input', () => updateMessage(false));
-        senderInput.addEventListener('input', () => updateMessage(false));
-
-        randomBtn.addEventListener('click', () => {
-            updateMessage(true);
+            checkGenderVisibility();
+            generateMessage();
         });
 
-        copyBtn.addEventListener('click', async () => {
-            try {
-                if (!resultText.value.trim()) return;
-                await navigator.clipboard.writeText(resultText.value);
+        genderSelect.addEventListener('change', generateMessage);
+        targetInput.addEventListener('input', generateMessage);
+        senderInput.addEventListener('input', generateMessage);
+        randomBtn.addEventListener('click', generateMessage);
+
+        copyBtn.addEventListener('click', () => {
+            resultText.select();
+            navigator.clipboard.writeText(resultText.value).then(() => {
                 copyAlert.style.display = 'block';
                 setTimeout(() => {
                     copyAlert.style.display = 'none';
-                }, 2000);
-            } catch (err) {
-                console.error("Gagal menyalin teks:", err);
-            }
+                }, 2500);
+            });
         });
 
         resetBtn.addEventListener('click', () => {
@@ -473,18 +491,19 @@
             senderInput.value = '';
             templateSelect.selectedIndex = 0;
             genderSelect.selectedIndex = 0;
-            activeUnicodeStyle = null;
-            updateMessage(true);
+            checkGenderVisibility();
+            generateMessage();
         });
 
         unicodeButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                activeUnicodeStyle = btn.getAttribute('data-style');
-                resultText.value = convertToUnicode(resultText.value, activeUnicodeStyle);
+                const style = btn.getAttribute('data-style');
+                convertUnicode(style);
             });
         });
 
-        updateMessage(true);
+        checkGenderVisibility();
+        generateMessage();
     </script>
 </body>
 </html>
