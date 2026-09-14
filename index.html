@@ -231,6 +231,8 @@
                 <select id="templateSelect">
                     <option value="condolence_id">Belasungkawa (Bahasa Indonesia + Arab - Acak Redaksi)</option>
                     <option value="condolence_jv">Belasungkawa (Bahasa Jawa Halus + Arab)</option>
+                    <option value="sick_id">Doa Kesembuhan / Orang Sakit (Bahasa Indonesia + Hadis - Acak Redaksi)</option>
+                    <option value="sick_jv">Doa Kesembuhan / Orang Sakit (Bahasa Jawa Halus + Doa Arab)</option>
                     <option value="birthday_id">Ulang Tahun (Bahasa Indonesia Santai)</option>
                     <option value="birthday_jv">Ulang Tahun (Bahasa Jawa / Ambyar Style)</option>
                     <option value="eid_id">Hari Raya / Lebaran (Bahasa Indonesia - Acak Redaksi)</option>
@@ -247,7 +249,7 @@
             </div>
 
             <div class="form-group">
-                <label for="targetInput">Nama Almarhum / Yang Berulang Tahun / Penerima</label>
+                <label for="targetInput">Nama Almarhum / Yang Berulang Tahun / Penerima / Orang Sakit</label>
                 <input type="text" id="targetInput" placeholder="Contoh: Bpk. H. Sudirman / Ibu Hj. Desi Rahmawati">
             </div>
 
@@ -318,19 +320,26 @@
             "Taqabbalallahu minna wa minkum, shiyamana wa shiyamakum.\n\nSelamat Hari Raya Idul Fitri Minal Aidin Wal Faizin untuk [TARGET], mohon maaf lahir dan batin atas segala khilaf dan salah baik sengaja maupun tidak.\n\n[SENDER]"
         ];
 
+        const sickVariations = [
+            "Syafakallah / Syafakillah untuk [TARGET] 🤲✨\n\nاللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِ أَنْتَ الشَّافِي لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ شِفَاءً لاَ يُغَادِرُ سَقَمًا\n\n\"Ya Allah, Tuhan seluruh manusia, hilangkanlah penyakit ini. Sembuhkanlah, Engkaulah Maha Penyembuh. Tidak ada kesembuhan kecuali kesembuhan-Mu, kesembuhan yang tidak meninggalkan rasa sakit.\" (HR. Bukhari & Muslim)\n\nSemoga Allah SWT melimpahkan kesembuhan yang sempurna, memberikan kekuatan, dan menjadikan ujian sakit ini sebagai penggugur dosa.\n\n[SENDER]",
+            "Lekas sembuh untuk [TARGET] 💪🌿\n\nأَسْأَلُ اللهَ العَظِيمَ رَبَّ العَرْشِ العَظِيمِ أَنْ يَشْفِيَكَ\n\n\"Aku memohon kepada Allah Yang Maha Agung, Tuhan yang memiliki 'Arsy yang agung, agar memberikan kesembuhan kepadamu.\" (HR. Abu Daud & Tirmidzi)\n\nSemoga Allah SWT mengangkat segala penyakit, mengembalikan kebugaran tubuh, serta melimpahkan kesehatan dan ketenangan untuk kamu dan keluarga.\n\nAamiin Ya Rabbal 'Alamin.\n\n[SENDER]",
+            "Untuk [TARGET] 🤲✨\n\nبِسْمِ اللهِ، أَعُوذُ بِعِزَّةِ اللهِ وَقُدْرَتِهِ مِنْ شَرِّ مَا أَجِدُ وَأُحَاذِرُ\n\n\"Dengan nama Allah, aku berlindung dengan keagungan Allah dan kekuasaan-Nya dari kejahatan penyakit yang aku dapati dan aku takuti.\" (HR. Muslim)\n\nSemoga Allah SWT memberikan kesembuhan, melapangkan rasa sakit, dan memberikan kesehatan kembali seperti sediakala. Tetap semangat dan istirahat yang cukup ya!\n\n[SENDER]"
+        ];
+
         const templates = {
             condolence_jv: {
                 male: "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKula sakeluarga ngaturaken belasungkawa ingkang sak ageng-agengipun awit tilar donyanipun [TARGET].\n\nMugi-mugi Gusti Allah SWT maringi pangapunten sedaya lepatipun almarhum, nampi amal ibadahipun, sarta maringi papan ingkang mulia.\n\n" + arabDoaMale + "\n\nKeluarga ingkang ditinggal mugi tansah pinaringan tabah, sabar, lan ikhlas.\n\nMugi almarhum [TARGET] khusnul khatimah.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
                 female: "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKula sakeluarga ngaturaken belasungkawa ingkang sak ageng-agengipun awit tilar donyanipun [TARGET].\n\nMugi-mugi Gusti Allah SWT maringi pangapunten sedaya lepatipun almarhumah, nampi amal ibadahipun, sarta maringi papan ingkang mulia.\n\n" + arabDoaFemale + "\n\nKeluarga ingkang ditinggal mugi tansah pinaringan tabah, sabar, lan ikhlas.\n\nMugi almarhumah [TARGET] khusnul khatimah.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]"
             },
+            sick_jv: "Sugeng pinaringan kesembuhan kagem [TARGET] 🤲✨\n\nبِسْمِ اللهِ، أَعُوذُ بِعِزَّةِ اللهِ وَقُدْرَتِهِ مِنْ شَرِّ مَا أَجِدُ وَأُحَاذِرُ\n\nMugi-mugi Gusti Allah SWT ingkang Maha Welas lan Asih ngangkat sedaya penyakitipun [TARGET], maringi pangapunten lepat, lan maringi berkah kesehatan ingkang jangkep.\n\nMugi tansah pinaringan ketabahan lan kados saban sabanipun saged kempal kaliyan keluarga.\n\nAamiin ya Rabbal 'alamin.\n\n[SENDER]",
             birthday_id: "Barakallah fii umrik untuk [TARGET]!\n\nSemoga di usia yang baru ini senantiasa diberikan kesehatan, keberkahan hidup, dimudahkan segala urusannya, serta tercapai semua hajat dan cita-citanya. Aamiin!\n\nSalam hangat,\n[SENDER]",
             birthday_jv: "Sugeng tanggap warsa kagem [TARGET]!\n\nMugi-mugi tansah pinaringan séhat walafiat, berkah rezekipun, panjang umure, lan sembarang kalir kelampahan sedaya gagasane. Aamiin ya Rabbal 'alamin.\n\n[SENDER]",
             eid_jv: "Taqabbalallahu minna wa minkum.\n\nNgaturaken sedoyo sugeng riyadi Idul Fitri kagem [TARGET]. Mohon maaf lahir lan batin bilih wonten kelepatan lampah ucapan kulo sakeluarga. Mugi tansah pinaringan wilujeng.\n\n[SENDER]"
         };
 
         const unicodeMaps = {
-            bold: { a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴', h: '𝗵', i: '𝗶', j: '𝗷', k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻', o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁', u: '𝘂', v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇', A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚', H: '𝗛', I: '𝗜', J: '𝗝', K: '𝗞', L: '𝗟', M: '𝗠', N: '𝗡', O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧', U: '𝗨', V: '𝗩', W: '𝗪', X: '𝗫', Y: '𝗬', Z: '𝗭', '0': '𝟬', '1': '𝟭', '2': '𝟮', '3': '𝟯', '4': '𝟰', '5': '𝟱', '6': '𝟲', '7': '𝟳', '8': '𝟴', '9': '𝟵' },
-            italic: { a: '𝘢', b: '𝘣', c: '𝘤', d: '𝘥', e: '𝘦', f: '𝘧', g: '𝘨', h: '𝘩', i: '𝘪', j: '𝘫', k: '𝘬', l: '𝘭', m: '𝘮', n: '𝘯', o: '𝘰', p: '𝘱', q: '𝘲', r: '𝘳', s: '𝘴', t: '𝘵', u: '𝘶', v: '𝘷', w: '𝘸', x: '𝘹', y: '𝘺', z: '𝘻', A: '𝘈', B: '𝘉', C: '𝘊', D: '𝘋', E: '𝘌', F: '𝘍', G: '𝘎', H: '𝘏', I: '𝘐', J: '𝘑', K: '𝘒', L: '🇱', M: '𝘔', N: '𝘕', O: '𝘖', P: '𝘗', Q: '𝘘', R: '𝘙', S: '𝘚', T: '𝘛', U: '𝘜', V: '𝘝', W: '𝘞', X: '𝘟', Y: '𝘠', Z: '𝘡', '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9' },
+            bold: { a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴', h: '𝗵', i: '𝗶', j: '𝗷', k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻', o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁', u: '𝘂', v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇', A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚', H: '𝗛', I: '𝗜', J: '𝗝', K: '𝗞', L: '🇱', M: '𝗠', N: '𝗡', O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧', U: '𝗨', V: '𝗩', W: '𝗪', X: '𝗫', Y: '𝗬', Z: '𝗭', '0': '𝟬', '1': '𝟭', '2': '𝟮', '3': '𝟯', '4': '𝟰', '5': '𝟱', '6': '𝟲', '7': '𝟳', '8': '𝟴', '9': '𝟵' },
+            italic: { a: '𝘢', b: '𝘣', c: '𝘤', d: '𝘥', e: '𝘦', f: '𝘧', g: '𝘨', h: '𝘩', i: '𝘪', j: '𝘫', k: '𝘬', l: '𝘭', m: '𝘮', n: '𝘯', o: '𝘰', p: '𝘱', q: '𝘲', r: '𝘳', s: '𝘴', t: '𝘵', u: '𝘶', v: '𝘷', w: '𝘸', x: '𝘹', y: '𝘺', z: '𝘻', A: '𝘈', B: '𝘉', C: '𝘊', D: '𝘋', E: '𝘌', F: '𝘍', G: '𝘎', H: '𝐻', I: '𝘐', J: '𝘑', K: '𝘒', L: '🇱', M: '𝘔', N: '𝘕', O: '𝘖', P: '𝘗', Q: '𝘘', R: '𝘙', S: '𝘚', T: '𝘛', U: '𝘜', V: '𝘝', W: '𝘞', X: '𝘟', Y: '𝘠', Z: '𝘡', '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9' },
             script: { a: '𝒶', b: '𝒷', c: '𝒸', d: '𝒹', e: 'ℯ', f: '𝒻', g: 'ℊ', h: '𝒽', i: '𝒾', j: '𝒿', k: '𝓀', l: '𝓁', m: '𝓂', n: '𝓃', o: 'ℴ', p: '𝓅', q: '𝓆', r: '𝓇', s: '𝓈', t: '𝓉', u: '𝓊', v: '𝓋', w: '𝓌', x: '𝓍', y: '𝓎', z: '𝓏', A: '𝒜', B: 'ℬ', C: '𝒞', D: '𝒟', E: 'ℰ', F: 'ℱ', G: '𝒢', H: 'ℋ', I: 'ℐ', J: '𝒥', K: '𝒦', L: 'ℒ', M: 'ℳ', N: '𝒩', O: '𝒪', P: '𝒫', Q: '𝒬', R: 'ℛ', S: '𝒮', T: '𝒯', U: '𝒰', V: '𝒱', W: '𝒲', X: '𝒳', Y: '𝒴', Z: '𝒵', '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9' },
             mono: { a: '𝚊', b: '𝚋', c: '𝚌', d: '𝚍', e: '𝚎', f: '𝚏', g: '𝚐', h: '𝚑', i: '𝚒', j: '𝚓', k: '𝚔', l: '𝚕', m: '𝚖', n: '𝚗', o: '𝚘', p: '𝚙', q: '𝚚', r: '𝚛', s: '𝚜', t: '𝚝', u: '𝚞', v: '𝚟', w: '𝚠', x: '𝚡', y: '𝚢', z: '𝚣', A: '𝙰', B: '𝙱', C: '𝙲', D: '𝙳', E: '𝙴', F: '𝙵', G: '𝙶', H: '𝙷', I: '𝙸', J: '𝙹', K: '𝙺', L: '𝙻', M: '𝙼', N: '𝙽', O: '𝙾', P: '𝙿', Q: '𝚀', R: '𝚁', S: '𝚂', T: '𝚃', U: '𝚄', V: '𝚅', W: '𝚆', X: '𝚇', Y: '𝚈', Z: '𝚉', '0': '𝟶', '1': '𝟷', '2': '𝟸', '3': '𝟹', '4': '𝟺', '5': '𝟻', '6': '𝟼', '7': '𝟽', '8': '𝟾', '9': '𝟿' }
         };
@@ -349,6 +358,7 @@
 
         let currentCondolenceRandomIndex = 0;
         let currentEidRandomIndex = 0;
+        let currentSickRandomIndex = 0;
         let activeUnicodeStyle = null;
 
         function convertToUnicode(text, style) {
@@ -364,6 +374,7 @@
                 const isCondolenceId = selectedKey === 'condolence_id';
                 const isCondolence = selectedKey.startsWith('condolence');
                 const isEidId = selectedKey === 'eid_id';
+                const isSickId = selectedKey === 'sick_id';
                 
                 if (isCondolence) {
                     genderGroup.style.display = 'flex';
@@ -398,6 +409,15 @@
                     }
 
                     let template = eidVariations[currentEidRandomIndex] || "";
+                    formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
+                } else if (isSickId) {
+                    if (isNewRandom) {
+                        currentSickRandomIndex = Math.floor(Math.random() * sickVariations.length);
+                    } else if (currentSickRandomIndex >= sickVariations.length) {
+                        currentSickRandomIndex = 0;
+                    }
+
+                    let template = sickVariations[currentSickRandomIndex] || "";
                     formatted = template.replace(/\[TARGET\]/g, target).replace(/\[SENDER\]/g, sender);
                 } else {
                     let template = "";
