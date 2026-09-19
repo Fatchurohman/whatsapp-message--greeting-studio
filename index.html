@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Message & Greeting Studio</title>
+    <style>
+        :root {
+            /* Header & Brand */
+            --primary-color: #075e54;
+            --secondary-color: #128c7e;
+            
+            /* Theme Gold Mewah */
+            --gold-bg-outer: linear-gradient(135deg, #f7f3e9 0%, #ebe3cf 100%);
+            --card-bg: #ffffff;
+            --gold-primary: #b8860b;
+            --gold-secondary: #d4af37;
+            --gold-dark: #8b6508;
+            --gold-light: #fefcf5;
+            --gold-border: #e2c97c;
+            --gold-glow: rgba(212, 175, 55, 0.25);
+            /* Typography & Elements */
+            --text-color: #1a1714;
+            --text-muted: #554a3a;
+            --border-color: #dcd3be;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background: var(--gold-bg-outer);
+            color: var(--text-color);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(184, 134, 11, 0.15), 0 2px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gold-border);
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        .developer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 4px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, #112e29 0%, #051c18 100%);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.2), 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .gold-orb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #fffdf0 0%, #ffd700 40%, #b8860b 80%, #654321 100%);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.8), inset 0 1px 2px rgba(255,255,255,0.8);
+            position: relative;
+        }
+        .gold-orb::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            width: 4px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+        .gold-text {
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+            background: linear-gradient(to bottom, #fffdf0 0%, #ffd700 35%, #daa520 60%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
+        }
+        .content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #3b3021;
+        }
+        select, input, textarea {
+            padding: 12px 14px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            background-color: #fff;
+            color: var(--text-color);
+            transition: all 0.25s ease;
+        }
+        select:focus, input:focus, textarea:focus {
+            border-color: var(--gold-secondary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+            background-color: var(--gold-light);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 180px;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+        .conditional-group {
+            background: linear-gradient(135deg, #fbf8f0 0%, #f7f0df 100%);
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid var(--gold-border);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .unicode-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+        }
+        .btn-unicode {
+            background: linear-gradient(180deg, #ffffff 0%, #faf6ec 100%);
+            border: 1px solid var(--gold-border);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .btn-unicode:hover {
+            background: linear-gradient(180deg, #fffdf7 0%, #f5eacb 100%);
+            border-color: var(--gold-primary);
+            box-shadow: 0 4px 8px var(--gold-glow);
+            transform: translateY(-1px);
+        }
+        .btn-unicode span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 3px;
+            color: var(--gold-dark);
+        }
+        .action-row {
+            display: flex;
+            gap: 12px;
+        }
+        .btn {
+            flex: 1;
+            background: linear-gradient(135deg, #c59b27 0%, #9e7208 100%);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(184, 134, 11, 0.3);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            box-shadow: 0 6px 14px rgba(184, 134, 11, 0.45);
+            transform: translateY(-1px);
+        }
+        .btn-random {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%) !important;
+            box-shadow: 0 4px 10px rgba(44, 62, 80, 0.3) !important;
+        }
+        .btn-random:hover {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%) !important;
+            box-shadow: 0 6px 14px rgba(44, 62, 80, 0.45) !important;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-dark);
+            box-shadow: none;
+            text-shadow: none;
+        }
+        .btn-outline:hover {
+            background: linear-gradient(135deg, #c59b27 0%, #9e7208 100%);
+            color: white;
+        }
+        .alert {
+            padding: 12px;
+            background: #f4ebd0;
+            color: #5c4308;
+            border: 1px solid var(--gold-border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+            text-align: center;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid var(--gold-border);
+            margin: 5px 0;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WhatsApp Message & Greeting Studio</h1>
+            <div class="developer-badge">
+                <div class="gold-orb"></div>
+                <span class="gold-text">developer : fatur62</span>
+            </div>
+        </header>
+        <div class="content">
+            <div class="form-group">
+                <label for="templateSelect">Pilih Kategori Ucapan</label>
+                <select id="templateSelect">
+                    <option value="birth_child_id">Kelahiran Anak (Bahasa Indonesia - Acak Redaksi)</option>
+                    <option value="birth_child_jv">Kelahiran Anak (Bahasa Jawa - Ngoko Alus/Krama)</option>
+                    <option value="birth_grandchild_id">Kelahiran Cucu (Bahasa Indonesia - Acak Redaksi)</option>
+                    <option value="birth_grandchild_jv">Kelahiran Cucu (Bahasa Jawa Krama)</option>
+                    <option value="condolence_id">Belasungkawa (Bahasa Indonesia + Arab - Acak Redaksi)</option>
+                    <option value="condolence_jv">Belasungkawa (Bahasa Jawa Halus + Arab)</option>
+                    <option value="sick_id">Doa Kesembuhan / Orang Sakit (Bahasa Indonesia + Hadis - Acak Redaksi)</option>
+                    <option value="sick_jv">Doa Kesembuhan / Orang Sakit (Bahasa Jawa Halus + Doa Arab)</option>
+                    <option value="birthday_id">Ulang Tahun (Bahasa Indonesia Santai)</option>
+                    <option value="birthday_jv">Ulang Tahun (Bahasa Jawa / Ambyar Style)</option>
+                    <option value="eid_id">Hari Raya / Lebaran (Bahasa Indonesia - Acak Redaksi)</option>
+                    <option value="eid_jv">Hari Raya / Lebaran (Bahasa Jawa Krama)</option>
+                </select>
+            </div>
+
+            <!-- Group Input Khusus Kelahiran -->
+            <div class="form-group conditional-group" id="birthGroup" style="display: none;">
+                <div class="form-group">
+                    <label for="babyNameInput">Nama Si Kecil / Bayi (Opsional)</label>
+                    <input type="text" id="babyNameInput" placeholder="Contoh: Muhammad Rayyan / Kirana">
+                </div>
+                <div class="form-group">
+                    <label for="parentGrandparentInput" id="parentGrandparentLabel">Nama Orang Tua / Kakek-Nenek</label>
+                    <input type="text" id="parentGrandparentInput" placeholder="Contoh: Budi & Ani">
+                </div>
+            </div>
+
+            <!-- Group Input Jenis Kelamin Belasungkawa -->
+            <div class="form-group conditional-group" id="genderGroup" style="display: none;">
+                <label for="genderSelect">Jenis Kelamin Almarhum / Almarhumah</label>
+                <select id="genderSelect">
+                    <option value="male">Laki-laki (Almarhum / -hu)</option>
+                    <option value="female">Perempuan (Almarhumah / -ha)</option>
+                </select>
+            </div>
+
+            <!-- Group Input Target Generik -->
+            <div class="form-group" id="targetGroup">
+                <label for="targetInput">Nama Almarhum / Yang Berulang Tahun / Penerima / Orang Sakit</label>
+                <input type="text" id="targetInput" placeholder="Contoh: Bpk. H. Sudirman / Ibu Hj. Desi Rahmawati">
+            </div>
+
+            <div class="form-group">
+                <label for="senderInput">Nama / Pengirim (Opsional)</label>
+                <input type="text" id="senderInput" placeholder="Contoh: Fatur dan kelg">
+            </div>
+
+            <div class="form-group">
+                <label for="resultText">Hasil Pesan Utama (Klik tombol Acak untuk ganti gaya redaksi)</label>
+                <textarea id="resultText"></textarea>
+            </div>
+
+            <div id="copyAlert" class="alert">✨ Pesan berhasil disalin ke clipboard!</div>
+
+            <div class="action-row">
+                <button class="btn btn-random" id="randomBtn">Acak Redaksi Lagi</button>
+                <button class="btn" id="copyBtn">Salin Pesan</button>
+                <button class="btn btn-outline" id="resetBtn">Reset</button>
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label>Konversi Variasi Huruf (Klik untuk Terapkan ke Pesan di Atas)</label>
+                <div class="unicode-options">
+                    <button class="btn-unicode" data-style="bold">
+                        <span>Tebal (Sans)</span> 𝗯𝗼𝗹𝗱 𝘁𝗲𝘅𝘁
+                    </button>
+                    <button class="btn-unicode" data-style="italic">
+                        <span>Miring (Sans)</span> 𝘪𝘵𝘢𝘭𝘪𝘤 𝘵𝗲𝘅𝘵
+                    </button>
+                    <button class="btn-unicode" data-style="script">
+                        <span>Kaligrafi / Script</span> 𝓈𝒸𝓇𝒾𝓅𝓉 𝓉ℯ𝓍𝓉
+                    </button>
+                    <button class="btn-unicode" data-style="mono">
+                        <span>Kotak / Monospace</span> 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const condolenceVariations = {
+            male: [
+                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita yang sedalam-dalamnya atas wafatnya [TARGET].\n\nSemoga Allah SWT mengampuni segala dosa dan kekhilafan almarhum, menerima seluruh amal ibadahnya, melapangkan dan menerangi alam kuburnya, serta menempatkan beliau di tempat yang mulia di sisi-Nya.\n\n[ARAB_DOA]\n\nSemoga keluarga yang ditinggalkan diberikan ketabahan, kesabaran, keikhlasan, dan kekuatan dalam menghadapi musibah ini.\n\nSemoga almarhum [TARGET] husnul khatimah dan mendapatkan tempat terbaik di sisi Allah SWT.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
+                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKeluarga besar turut berduka cita atas berpulangnya [TARGET]. \n\nSemoga segala amal ibadah beliau diterima di sisi Allah SWT, diampuni segala khilafnya, dan diberikan ketabahan bagi keluarga yang ditinggalkan.\n\n[ARAB_DOA]\n\nAamiin ya Rabbal 'alamin.\n\n[SENDER]",
+                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nInnalillahi wa inna ilaihi raji'un. Turut berbelasungkawa atas wafatnya [TARGET].\n\nSemoga almarhum husnul khatimah, dilapangkan kuburnya, dan keluarga yang ditinggal senantiasa tabah menghadapi takdir ini.\n\n[ARAB_DOA]\n\n[SENDER]"
+            ],
+            female: [
+                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nTurut berduka cita yang sedalam-dalamnya atas wafatnya [TARGET].\n\nSemoga Allah SWT mengampuni segala dosa dan kekhilafan almarhumah, menerima seluruh amal ibadahnya, melapangkan dan menerangi alam kuburnya, serta menempatkan beliau di tempat yang mulia di sisi-Nya.\n\n[ARAB_DOA]\n\nSemoga keluarga yang ditinggalkan diberikan ketabahan, kesabaran, keikhlasan, dan kekuatan dalam menghadapi musibah ini.\n\nSemoga almarhumah [TARGET] husnul khatimah dan mendapatkan tempat terbaik di sisi Allah SWT.\n\nآمِيْنَ يَا رَبَّ الْعَالَمِيْنَ\n[SENDER]",
+                "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKeluarga besar turut berduka cita atas berpulangnya [TARGET]. \n\nSemoga segala amal ibadah beliau diterima di sisi Allah SWT, diampuni segala khilafnya, dan diberikan ketabahan bagi keluarga yang ditinggalkan.\n\n[ARAB_DOA]\n\nAamiin ya Rabbal 'alamin.\n\n[SENDER]"
+            ]
+        };
+
+        const birthChildVariationsID = [
+            "Selamat atas kelahiran putra/putri tercinta [BABY_NAME]! 👶✨\n\nSelamat untuk [PARENTS]. Semoga kehadiran si kecil membawa kebahagiaan, melengkapi kehangatan keluarga, serta tumbuh menjadi anak yang sehat, cerdas, dan membanggakan.\n\n[SENDER]",
+            "Barakallahu laka fil mauhubi laka wa syakartal-wahiba wa balagha asyuddahu wa ruziqta birrahu. 🤲\n\nSelamat atas lahirnya [BABY_NAME] untuk [PARENTS]! Semoga menjadi anak yang soleh/solehah, berbakti kepada kedua orang tua, serta membawa keberkahan bagi keluarga.\n\n[SENDER]",
+            "Selamat ya atas kelahiran [BABY_NAME]! 🍼🎉\n\nSemoga ibu dan bayinya senantiasa diberikan kesehatan, pemulihan yang cepat, serta melimpah rezeki dan kebahagiaan untuk keluarga [PARENTS].\n\n[SENDER]"
+        ];
+
+        const birthGrandchildVariationsID = [
+            "Selamat atas kelahiran cucu tercinta [BABY_NAME]! 👶🎉\n\nSelamat untuk [GRANDPARENTS] yang kini resmi jadi kakek/nenek. Semoga si kecil selalu sehat, tumbuh cerdas, dan menjadi penyejuk hati serta kebanggaan bagi seluruh keluarga besar.\n\n[SENDER]",
+            "Selamat atas hadirnya anggota keluarga baru, cucu tercinta [BABY_NAME]! ✨\n\nKebahagiaan yang luar biasa untuk [GRANDPARENTS] dan keluarga besar. Semoga kehadiran si kecil membawa suasana baru yang penuh suka cita, keberkahan, dan kasih sayang.\n\n[SENDER]"
+        ];
+
+        const arabDoaMale = "اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَّقَّيْتَ الثَّوْبَ الْأَبْيَضَ مِنَ الدَّنَسِ.";
+        const arabDoaFemale = "اللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا، وَعَافِهَا وَاعْفُ عَنْهَا، وَأَكْرِمْ نُزُلَهَا، وَوَسِّعْ مُدْخَلَهَا، وَاغْسِلْهَا بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهَا مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الْأَبْيَضَ مِنَ الدَّنَسِ.";
+
+        const eidVariations = [
+            "🌙✨ SELAMAT HARI RAYA IDUL FITRI ✨🌙\nKagem [TARGET],\n\nتَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ صَالِحَ الْأَعْمَالِ\n\nSemoga Allah menerima seluruh amal ibadah kita, mengampuni segala khilaf dan dosa, serta memberikan keberkahan, kesehatan, dan kebahagiaan untuk kita dan keluarga.\n\nمِنَ الْعَائِدِيْنَ وَالْفَائِزِيْنَ كُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ\n\nMohon maaf lahir dan batin. 🤲\nSemoga kita senantiasa berada dalam rahmat dan ridha Allah SWT. 🌿\n\n[SENDER]",
+            "🌙 Selamat Hari Raya Idul Fitri 🌙\nKagem [TARGET],\n\nتَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ \n\nSemoga Allah menerima amal ibadah kita dan menjadikan kita kembali dalam keadaan suci.\n\nMohon maaf lahir dan batin.\n\n[SENDER]"
+        ];
+
+        const sickVariations = [
+            "Syafakallah / Syafakillah untuk [TARGET] 🤲✨\n\nاللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِ أَنْتَ الشَّافِي لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ شِفَاءً لاَ يُغَادِرُ سَقَمًا\n\n\"Ya Allah, Tuhan seluruh manusia, hilangkanlah penyakit ini. Sembuhkanlah, Engkaulah Maha Penyembuh. Tidak ada kesembuhan kecuali kesembuhan-Mu, kesembuhan yang tidak meninggalkan rasa sakit.\" (HR. Bukhari & Muslim)\n\nSemoga Allah SWT melimpahkan kesembuhan yang sempurna, memberikan kekuatan, dan menjadikan ujian sakit ini sebagai penggugur dosa.\n\n[SENDER]"
+        ];
+
+        const templates = {
+            birth_child_jv: "Sugeng atas miyosipun putra/putri [BABY_NAME] kagem [PARENTS]! 👶✨\n\nMugi-mugi si kecil tansah kaparingan kasarasan, jangkep sarira, cerdas, lan dados putra/putri ingkang mikul duwur mendhem jero marang tiyang sepuh lan migunani tumrap sesami.\n\n[SENDER]",
+            birth_grandchild_jv: "Sugeng ambal warsa ing donya kagem putu tercinta [BABY_NAME]! 👶✨\n\nSelamat kagem [GRANDPARENTS] ingkang sampun resmi dados mbah/opa-oma. Mugi-mugi si kecil tansah pinaringan kesehatan, cerdas, lan dados penyejuk ati sarta kebanggaane kulawarga besar.\n\n[SENDER]",
+            condolence_jv: {
+                male: "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKula sakeluarga ngaturaken belasungkawa ingkang sak ageng-agengipun awit tilar donyanipun [TARGET].\n\nMugi-mugi Gusti Allah SWT maringi pangapunten sedaya lepatipun almarhum, nampi amal ibadahipun, sarta maringi papan ingkang mulia.\n\n" + arabDoaMale + "\n\nKeluarga ingkang ditinggal mugi tansah pinaringan tabah, sabar, lan ikhlas.\n\n[SENDER]",
+                female: "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ\n\nKula sakeluarga ngaturaken belasungkawa ingkang sak ageng-agengipun awit tilar donyanipun [TARGET].\n\nMugi-mugi Gusti Allah SWT maringi pangapunten sedaya lepatipun almarhumah, nampi amal ibadahipun, sarta maringi papan ingkang mulia.\n\n" + arabDoaFemale + "\n\nKeluarga ingkang ditinggal mugi tansah pinaringan tabah, sabar, lan ikhlas.\n\n[SENDER]"
+            },
+            sick_jv: "Sugeng pinaringan kesembuhan kagem [TARGET] 🤲✨\n\nMugi-mugi Gusti Allah SWT ingkang Maha Welas lan Asih ngangkat sedaya penyakitipun [TARGET], maringi pangapunten lepat, lan maringi berkah kesehatan ingkang jangkep.\n\n[SENDER]",
+            birthday_id: "Barakallah fii umrik untuk [TARGET]!\n\nSemoga di usia yang baru ini senantiasa diberikan kesehatan, keberkahan hidup, dimudahkan segala urusannya, serta tercapai semua hajat dan cita-citanya. Aamiin!\n\nSalam hangat,\n[SENDER]",
+            birthday_jv: "Sugeng tanggap warsa kagem [TARGET]!\n\nMugi-mugi tansah pinaringan séhat walafiat, berkah rezekipun, panjang umure, lan sembarang kalir kelampahan sedaya gagasane. Aamiin ya Rabbal 'alamin.\n\n[SENDER]",
+            eid_jv: "Taqabbalallahu minna wa minkum.\n\nNgaturaken sedoyo sugeng riyadi Idul Fitri kagem [TARGET]. Mohon maaf lahir lan batin bilih wonten kelepatan lampah ucapan kulo sakeluarga. Mugi tansah pinaringan wilujeng.\n\n[SENDER]"
+        };
+
+        const unicodeMaps = {
+            bold: { a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴', h: '𝗵', i: '𝗶', j: '𝗷', k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻', o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁', u: '𝘂', v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇', A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚', H: '𝗛', I: '𝗜', J: '𝗝', K: '𝗞', L: '🇱', M: '𝗠', N: '𝗡', O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧', U: '𝗨', V: '𝗩', W: '𝗪', X: '𝗫', Y: '𝗬', Z: '𝘭', '0': '𝟬', '1': '𝟭', '2': '𝟮', '3': '𝟯', '4': '𝟰', '5': '𝟱', '6': '𝟲', '7': '𝟩', '8': '𝟴', '9': '𝟵' },
+            italic: { a: '𝘢', b: '𝘣', c: '𝘤', d: '𝘥', e: '𝘦', f: '𝘧', g: '𝘨', h: '𝘩', i: '𝘪', j: '𝘫', k: '𝘬', l: '𝘭', m: '𝘮', n: '𝘯', o: '𝘰', p: '𝘱', q: '𝘲', r: '𝘳', s: '𝘴', t: '𝘵', u: '𝘶', v: '𝘷', w: '𝘸', x: '𝘹', y: '𝘺', z: '𝘻', A: '𝘈', B: '𝘉', C: '𝘊', D: '𝘋', E: '𝘌', F: '𝘍', G: '𝘎', H: '𝐻', I: '𝘐', J: '𝘑', K: '𝘒', L: '🇱', M: '𝘔', N: '𝘕', O: '𝘖', P: '𝘗', Q: '𝘘', R: '𝘙', S: '𝘚', T: '𝘛', U: '𝘜', V: '𝘝', W: '𝘞', X: '𝘟', Y: '𝘠', Z: '𝘡' },
+            script: { a: '𝒶', b: '𝒷', c: '𝒸', d: '𝒹', e: 'ℯ', f: '𝒻', g: 'ℊ', h: '𝒽', i: '𝒾', j: '𝒿', k: '𝓀', l: '𝓁', m: '𝓂', n: '𝓃', o: 'ℴ', p: '𝓅', q: '𝓆', r: '𝓇', s: '𝓈', t: '𝓉', u: '𝓊', v: '𝓋', w: '𝓌', x: '𝓍', y: '𝓎', z: '𝓏', A: '𝒜', B: 'ℬ', C: '𝒞', D: '𝒟', E: 'ℰ', F: 'ℱ', G: '𝒢', H: 'ℋ', I: 'ℐ', J: '𝒥', K: '𝒦', L: 'ℒ', M: 'ℳ', N: '𝒩', O: '𝒪', P: '𝒫', Q: '𝒬', R: 'ℛ', S: '𝒮', T: '𝒯', U: '𝒰', V: '𝒱', W: '𝒲', X: '𝒳', Y: '𝒴', Z: '𝒵' },
+            mono: { a: '𝚊', b: '𝚋', c: '𝚌', d: '𝚍', e: '𝚎', f: '𝚏', g: '𝚐', h: '𝚑', i: '𝚒', j: '𝚓', k: '𝚔', l: '𝚕', m: '𝚖', n: '𝚗', o: '𝚘', p: '𝚙', q: '𝚚', r: '𝚛', s: '𝚜', t: '𝚝', u: '𝚞', v: '𝚟', w: '𝚠', x: '𝚡', y: '𝚢', z: '𝚣', A: '𝙰', B: '𝙱', C: '𝙲', D: '𝙳', E: '𝙴', F: '𝙵', G: '𝙶', H: '𝙷', I: '𝙸', J: '𝙹', K: '𝙺', L: '𝙻', M: '𝙼', N: '𝙽', O: '𝙾', P: '𝙿', Q: '𝚀', R: '𝚁', S: '𝚂', T: '𝚃', U: '𝚄', V: '𝚅', W: '𝚆', X: '𝚇', Y: '𝚈', Z: '𝚉' }
+        };
+
+        const templateSelect = document.getElementById('templateSelect');
+        const genderGroup = document.getElementById('genderGroup');
+        const genderSelect = document.getElementById('genderSelect');
+        const birthGroup = document.getElementById('birthGroup');
+        const babyNameInput = document.getElementById('babyNameInput');
+        const parentGrandparentInput = document.getElementById('parentGrandparentInput');
+        const parentGrandparentLabel = document.getElementById('parentGrandparentLabel');
+        const targetGroup = document.getElementById('targetGroup');
+        const targetInput = document.getElementById('targetInput');
+        const senderInput = document.getElementById('senderInput');
+        const resultText = document.getElementById('resultText');
+        const copyBtn = document.getElementById('copyBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const randomBtn = document.getElementById('randomBtn');
+        const copyAlert = document.getElementById('copyAlert');
+        const unicodeButtons = document.querySelectorAll('.btn-unicode');
+
+        function getRandomItem(arr) {
+            if (!Array.isArray(arr) || arr.length === 0) return '';
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generateMessage() {
+            try {
+                const category = templateSelect ? templateSelect.value : '';
+                const gender = genderSelect ? genderSelect.value : 'male';
+                const target = (targetInput && targetInput.value.trim()) ? targetInput.value.trim() : '[Nama]';
+                const babyName = (babyNameInput && babyNameInput.value.trim()) ? babyNameInput.value.trim() : 'si kecil';
+                const parentGrandparent = (parentGrandparentInput && parentGrandparentInput.value.trim()) ? parentGrandparentInput.value.trim() : '[Nama Ortu/Kakek]';
+                const sender = senderInput ? senderInput.value.trim() : '';
+                const senderFormatted = sender ? `\n\nDari:\n${sender}` : '';
+                
+                let template = '';
+
+                if (category === 'birth_child_id') {
+                    template = getRandomItem(birthChildVariationsID);
+                } else if (category === 'birth_grandchild_id') {
+                    template = getRandomItem(birthGrandchildVariationsID);
+                } else if (category === 'condolence_id') {
+                    const list = condolenceVariations[gender] || [];
+                    template = getRandomItem(list);
+                    const arabDoa = (gender === 'male') ? arabDoaMale : arabDoaFemale;
+                    template = template.replace('[ARAB_DOA]', arabDoa);
+                } else if (category === 'condolence_jv') {
+                    template = templates.condolence_jv ? (templates.condolence_jv[gender] || '') : '';
+                } else if (category === 'eid_id') {
+                    template = getRandomItem(eidVariations);
+                } else if (category === 'sick_id') {
+                    template = getRandomItem(sickVariations);
+                } else {
+                    template = templates[category] || '';
+                }
+
+                if (typeof template !== 'string') {
+                    template = '';
+                }
+
+                let finalMessage = template
+                    .replace(/\[TARGET\]/g, target)
+                    .replace(/\[BABY_NAME\]/g, babyName)
+                    .replace(/\[PARENTS\]/g, parentGrandparent)
+                    .replace(/\[GRANDPARENTS\]/g, parentGrandparent)
+                    .replace('[SENDER]', senderFormatted);
+
+                if (resultText) {
+                    resultText.value = finalMessage;
+                }
+            } catch (err) {
+                console.error("Gagal mendGenerate pesan:", err);
+            }
+        }
+
+        function checkFormVisibility() {
+            if (!templateSelect) return;
+            const cat = templateSelect.value;
+
+            if (genderGroup) {
+                genderGroup.style.display = (cat === 'condolence_id' || cat === 'condolence_jv') ? 'flex' : 'none';
+            }
+
+            if (cat.startsWith('birth_')) {
+                if (birthGroup) birthGroup.style.display = 'flex';
+                if (targetGroup) targetGroup.style.display = 'none';
+
+                if (cat.includes('child')) {
+                    if (parentGrandparentLabel) parentGrandparentLabel.textContent = 'Nama Orang Tua Si Kecil';
+                    if (parentGrandparentInput) parentGrandparentInput.placeholder = 'Contoh: Mas Budi & Mbak Ani';
+                } else {
+                    if (parentGrandparentLabel) parentGrandparentLabel.textContent = 'Nama Kakek & Nenek / Opa & Oma';
+                    if (parentGrandparentInput) parentGrandparentInput.placeholder = 'Contoh: Pak Sudirman & Bu Titik';
+                }
+            } else {
+                if (birthGroup) birthGroup.style.display = 'none';
+                if (targetGroup) targetGroup.style.display = 'flex';
+            }
+        }
+
+        function convertUnicode(style) {
+            try {
+                const map = unicodeMaps[style];
+                if (!map || !resultText) return;
+
+                let currentText = resultText.value;
+                let converted = '';
+                for (let char of currentText) {
+                    converted += map[char] || char;
+                }
+                resultText.value = converted;
+            } catch (err) {
+                console.error("Gagal mengonversi unicode:", err);
+            }
+        }
+
+        if (templateSelect) {
+            templateSelect.addEventListener('change', () => {
+                checkFormVisibility();
+                generateMessage();
+            });
+        }
+
+        if (genderSelect) genderSelect.addEventListener('change', generateMessage);
+        if (targetInput) targetInput.addEventListener('input', generateMessage);
+        if (babyNameInput) babyNameInput.addEventListener('input', generateMessage);
+        if (parentGrandparentInput) parentGrandparentInput.addEventListener('input', generateMessage);
+        if (senderInput) senderInput.addEventListener('input', generateMessage);
+        if (randomBtn) randomBtn.addEventListener('click', generateMessage);
+
+        if (copyBtn && resultText && copyAlert) {
+            copyBtn.addEventListener('click', () => {
+                if (!resultText.value) return;
+                resultText.select();
+                navigator.clipboard.writeText(resultText.value).then(() => {
+                    copyAlert.style.display = 'block';
+                    setTimeout(() => {
+                        copyAlert.style.display = 'none';
+                    }, 2500);
+                }).catch(err => {
+                    console.error("Gagal menyalin pesan:", err);
+                });
+            });
+        }
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                if (targetInput) targetInput.value = '';
+                if (babyNameInput) babyNameInput.value = '';
+                if (parentGrandparentInput) parentGrandparentInput.value = '';
+                if (senderInput) senderInput.value = '';
+                if (templateSelect) templateSelect.selectedIndex = 0;
+                if (genderSelect) genderSelect.selectedIndex = 0;
+                checkFormVisibility();
+                generateMessage();
+            });
+        }
+
+        unicodeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const style = btn.getAttribute('data-style');
+                if (style) convertUnicode(style);
+            });
+        });
+
+        checkFormVisibility();
+        generateMessage();
+    </script>
+</body>
+</html>
