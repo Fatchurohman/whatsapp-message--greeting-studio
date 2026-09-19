@@ -17,7 +17,6 @@
             --gold-border: #e2c97c;
             --gold-glow: rgba(212, 175, 55, 0.25);
             --text-color: #1a1714;
-            --text-muted: #554a3a;
             --border-color: #dcd3be;
         }
         * {
@@ -70,19 +69,8 @@
             height: 14px;
             border-radius: 50%;
             background: radial-gradient(circle at 30% 30%, #fffdf0 0%, #ffd700 40%, #b8860b 80%, #654321 100%);
-            box-shadow: 0 0 8px rgba(255, 215, 0, 0.8), inset 0 1px 2px rgba(255,255,255,0.8);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
             position: relative;
-        }
-        .gold-orb::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 3px;
-            width: 4px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            transform: rotate(-45deg);
         }
         .gold-text {
             font-size: 0.95rem;
@@ -92,7 +80,6 @@
             background: linear-gradient(to bottom, #fffdf0 0%, #ffd700 35%, #daa520 60%, #b8860b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
         }
         .content {
             padding: 24px;
@@ -156,13 +143,10 @@
             font-size: 0.85rem;
             color: var(--text-color);
             transition: all 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
         .btn-unicode:hover {
             background: linear-gradient(180deg, #fffdf7 0%, #f5eacb 100%);
             border-color: var(--gold-primary);
-            box-shadow: 0 4px 8px var(--gold-glow);
-            transform: translateY(-1px);
         }
         .btn-unicode span {
             display: block;
@@ -186,32 +170,20 @@
             cursor: pointer;
             transition: all 0.25s;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(184, 134, 11, 0.3);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
         .btn:hover {
             background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-            box-shadow: 0 6px 14px rgba(184, 134, 11, 0.45);
-            transform: translateY(-1px);
         }
         .btn-random {
             background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%) !important;
-            box-shadow: 0 4px 10px rgba(44, 62, 80, 0.3) !important;
         }
         .btn-random:hover {
             background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%) !important;
-            box-shadow: 0 6px 14px rgba(44, 62, 80, 0.45) !important;
         }
         .btn-outline {
             background: transparent;
             border: 2px solid var(--gold-primary);
             color: var(--gold-dark);
-            box-shadow: none;
-            text-shadow: none;
-        }
-        .btn-outline:hover {
-            background: linear-gradient(135deg, #c59b27 0%, #9e7208 100%);
-            color: white;
         }
         .alert {
             padding: 12px;
@@ -247,15 +219,10 @@
                 <select id="templateSelect">
                     <option value="birthday_elder_id">Ulang Tahun Usia 60-an (Bahasa Indonesia + 4 Doa Arab Dhomir)</option>
                     <option value="birthday_elder_jv">Ulang Tahun Usia 60-an / Sepuh (Bahasa Jawa Halus + Doa Arab)</option>
-                    <option value="birth_child_id">Kelahiran Anak (Bahasa Indonesia - Acak Redaksi)</option>
-                    <option value="birth_child_jv">Kelahiran Anak (Bahasa Jawa - Ngoko Alus/Krama)</option>
-                    <option value="birth_grandchild_id">Kelahiran Cucu (Bahasa Indonesia - Acak Redaksi)</option>
-                    <option value="birth_grandchild_jv">Kelahiran Cucu (Bahasa Jawa Krama)</option>
                     <option value="sick_id">Doa Kesembuhan / Orang Sakit (Bahasa Indonesia + 4 Doa Hadis)</option>
-                    <option value="sick_jv">Doa Kesembuhan / Orang Sakit (Bahasa Jawa Halus + Doa Arab)</option>
                     <option value="birthday_id">Ulang Tahun (Bahasa Indonesia Santai)</option>
                     <option value="birthday_jv">Ulang Tahun (Bahasa Jawa / Ambyar Style)</option>
-                    <option value="eid_id">Hari Raya / Lebaran (Bahasa Indonesia - Acak Redaksi)</option>
+                    <option value="eid_id">Hari Raya / Lebaran (Bahasa Indonesia)</option>
                     <option value="eid_jv">Hari Raya / Lebaran (Bahasa Jawa Krama)</option>
                 </select>
             </div>
@@ -269,31 +236,19 @@
                 </select>
             </div>
 
-            <!-- Group Input Khusus Kelahiran -->
-            <div class="form-group conditional-group" id="birthGroup" style="display: none;">
-                <div class="form-group">
-                    <label for="babyNameInput">Nama Si Kecil / Bayi (Opsional)</label>
-                    <input type="text" id="babyNameInput" placeholder="Contoh: Muhammad Rayyan / Kirana">
-                </div>
-                <div class="form-group">
-                    <label for="parentGrandparentInput" id="parentGrandparentLabel">Nama Orang Tua / Kakek-Nenek</label>
-                    <input type="text" id="parentGrandparentInput" placeholder="Contoh: Budi & Ani">
-                </div>
-            </div>
-
             <!-- Group Input Target Generik -->
             <div class="form-group" id="targetGroup">
                 <label for="targetInput">Nama Yang Berulang Tahun / Penerima</label>
-                <input type="text" id="targetInput" placeholder="Contoh: Bpk. H. Ahmad / Ibu Hj. Siti">
+                <input type="text" id="targetInput" value="Bpk. H. Ahmad" placeholder="Contoh: Bpk. H. Ahmad / Ibu Hj. Siti">
             </div>
 
             <div class="form-group">
                 <label for="senderInput">Nama / Pengirim (Opsional)</label>
-                <input type="text" id="senderInput" placeholder="Contoh: Fatur dan kelg">
+                <input type="text" id="senderInput" value="Fatur dan keluarga" placeholder="Contoh: Fatur dan kelg">
             </div>
 
             <div class="form-group">
-                <label for="resultText">Hasil Pesan Utama (Klik "Acak Redaksi Lagi" untuk mengganti variasi doa/gaya)</label>
+                <label for="resultText">Hasil Pesan Utama</label>
                 <textarea id="resultText"></textarea>
             </div>
 
@@ -316,11 +271,8 @@
                     <button class="btn-unicode" data-style="italic">
                         <span>Miring (Sans)</span> 𝘪𝘵𝘢𝘭𝘪𝘤 𝘵𝗲𝘅𝘵
                     </button>
-                    <button class="btn-unicode" data-style="script">
-                        <span>Kaligrafi / Script</span> 𝓈𝒸𝓇𝒾𝓅𝓉 𝓉ℯ𝓍𝓉
-                    </button>
                     <button class="btn-unicode" data-style="mono">
-                        <span>Kotak / Monospace</span> 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎
+                        <span>Monospace</span> 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎
                     </button>
                 </div>
             </div>
@@ -328,72 +280,143 @@
     </div>
 
     <script>
-        // 4 Variasi Doa Arab Ulang Tahun Lansia / Usia 60-an (Dhomir Male & Female)
+        // 1. Variasi Doa Arab Ulang Tahun Usia 60-an (Dhomir Male & Female)
         const birthdayElderVariations = {
             male: [
-                // Doa 1: Keberkahan Umur & Ketenangan Jiwa
-                "Selamat Milad / Ulang Tahun yang ke-60 kagem [TARGET] 🤲✨\n\nبَارَكَ اللهُ فِي عُمْرِهِ وَنَفَعَ اللهُ بِهِ فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ\n\n(Barakallahu fii 'umrihi wa nafa'allahu bihi fid-diini wad-dunya wal-aakhirah)\n\nSemoga di usia 60 tahun yang penuh keberkahan ini, Allah SWT senantiasa melimpahkan kesehatan, ketenangan jiwa, serta menjadikan sisa usia beliau semakin bernilai ibadah dan membimbing keluarga tercinta.\n\n[SENDER]",
-
-                // Doa 2: Kesehatan Fisik, Istiqomah & Dimudahkan Urusan
-                "Selamat bertambah usia yang ke-60 kagem [TARGET] 🌸🌿\n\nاللَّهُمَّ طَوِّلْ عُمْرَهُ فِي طَاعَتِكَ وَعَافِهِ فِي بَدَنِهِ وَوَسِّعْ رِزْقَهُ وَاخْتِمْ لَهُ بِالصَّالِحَاتِ\n\n(Allahumma thawwil 'umrahu fii thaa'atika wa 'aafihi fii badanihi wa wassi' rizqahu wakhtim lahu bish-shaalihaat)\n\nSemoga Allah SWT senantiasa memberikan kekuatan jasmani dan rohani, memanjangkan umur dalam ketaatan, serta mengaruniakan kebahagiaan lahir dan batin bersama anak cucu tercinta.\n\n[SENDER]",
-
-                // Doa 3: Permohonan Afiat & Khusnul Khatimah
+                "Selamat Milad / Ulang Tahun yang ke-60 kagem [TARGET] 🤲✨\n\nبَارَكَ اللهُ فِي عُمْرِهِ وَنَفَعَ اللهُ بِهِ فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ\n\n(Barakallahu fii 'umrihi wa nafa'allahu bihi fid-diini wad-dunya wal-aakhirah)\n\nSemoga di usia 60 tahun yang penuh keberkahan ini, Allah SWT senantiasa melimpahkan kesehatan, ketenangan jiwa, serta menjadikan sisa usia beliau semakin bernilai ibadah.\n\n[SENDER]",
+                "Selamat bertambah usia yang ke-60 kagem [TARGET] 🌸🌿\n\nاللَّهُمَّ طَوِّيلْ عُمْرَهُ فِي طَاعَتِكَ وَعَافِهِ فِي بَدَنِهِ وَوَسِّعْ رِزْقَهُ وَاخْتِمْ لَهُ بِالصَّالِحَاتِ\n\n(Allahumma thawwil 'umrahu fii thaa'atika wa 'aafihi fii badanihi wa wassi' rizqahu wakhtim lahu bish-shaalihaat)\n\nSemoga Allah SWT senantiasa memberikan kekuatan jasmani dan rohani, memanjangkan umur dalam ketaatan, serta mengaruniakan kebahagiaan lahir dan batin bersama keluarga tercinta.\n\n[SENDER]",
                 "Selamat Ulang Tahun yang ke-60 kagem [TARGET] 🤲🌟\n\nاللَّهُمَّ إنَّا نَسْأَلُكَ العَفْوَ وَالعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ وَارْزُقْهُ حُسْنَ الْخَاتِمَةِ\n\n(Allahumma inna nas'alukal 'afwa wal 'aafiyata fid-dunya wal aakhirah warzuqhu husnal khaatimah)\n\nSemoga Allah SWT senantiasa mengaruniakan kesehatan yang sempurna, perlindungan, kemudahan dalam setiap langkah, serta keberkahan rezeki di usia emas ini. Aamiin YRA.\n\n[SENDER]",
-
-                // Doa 4: Pengampunan Dosa & Perlindungan Masa Tua
                 "Selamat Milad / Bertambah Usia yang ke-60 kagem [TARGET] 🌿✨\n\nاللَّهُمَّ اجْعَلْ خَيْرَ عُمْرِهِ آخِرَهُ وَخَيْرَ عَمَلِهِ خَوَاتِيمَهُ وَخَيْرَ أَيَّامِهِ يَوْمَ يَلْقَاكَ\n\n(Allahummaj'al khaira 'umrihi aakhirahu wa khaira 'amalihi khawaatiimahu wa khaira ayyaamihi yauma yalqaak)\n\nSemoga di umur yang ke-60 ini, Allah jadikan akhir usianya sebagai masa terbaik, selalu dianugerahi kesabaran, kesehatan, dan senantiasa berada dalam lindungan-Nya.\n\n[SENDER]"
             ],
             female: [
-                // Doa 1: Keberkahan Umur & Ketenangan Jiwa
-                "Selamat Milad / Ulang Tahun yang ke-60 kagem [TARGET] 🤲✨\n\nبَارَكَ اللهُ فِي عُمْرِهَا وَنَفَعَ اللهُ بِهَا فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ\n\n(Barakallahu fii 'umrihaa wa nafa'allahu bihaa fid-diini wad-dunya wal-aakhirah)\n\nSemoga di usia 60 tahun yang penuh keberkahan ini, Allah SWT senantiasa melimpahkan kesehatan, ketenangan jiwa, serta menjadikan sisa usia beliau semakin bernilai ibadah dan membimbing keluarga tercinta.\n\n[SENDER]",
-
-                // Doa 2: Kesehatan Fisik, Istiqomah & Dimudahkan Urusan
-                "Selamat bertambah usia yang ke-60 kagem [TARGET] 🌸🌿\n\nاللَّهُمَّ طَوِّلْ عُمْرَهَا فِي طَاعَتِكِ وَعَافِهَا فِي بَدَنِهَا وَوَسِّعْ رِزْقَهَا وَاخْتِمْ لَهَا بِالصَّالِحَاتِ\n\n(Allahumma thawwil 'umrahaa fii thaa'atika wa 'aafihaa fii badanihaa wa wassi' rizqahaa wakhtim lahaa bish-shaalihaat)\n\nSemoga Allah SWT senantiasa memberikan kekuatan jasmani dan rohani, memanjangkan umur dalam ketaatan, serta mengaruniakan kebahagiaan lahir dan batin bersama anak cucu tercinta.\n\n[SENDER]",
-
-                // Doa 3: Permohonan Afiat & Khusnul Khatimah
+                "Selamat Milad / Ulang Tahun yang ke-60 kagem [TARGET] 🤲✨\n\nبَارَكَ اللهُ فِي عُمْرِهَا وَنَفَعَ اللهُ بِهَا فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ\n\n(Barakallahu fii 'umrihaa wa nafa'allahu bihaa fid-diini wad-dunya wal-aakhirah)\n\nSemoga di usia 60 tahun yang penuh keberkahan ini, Allah SWT senantiasa melimpahkan kesehatan, ketenangan jiwa, serta menjadikan sisa usia beliau semakin bernilai ibadah.\n\n[SENDER]",
+                "Selamat bertambah usia yang ke-60 kagem [TARGET] 🌸🌿\n\nاللَّهُمَّ طَوِّيلْ عُمْرَهَا فِي طَاعَتِكِ وَعَافِهَا فِي بَدَنِهَا وَوَسِّعْ رِزْقَهَا وَاخْتِمْ لَهَا بِالصَّالِحَاتِ\n\n(Allahumma thawwil 'umrahaa fii thaa'atika wa 'aafihaa fii badanihaa wa wassi' rizqahaa wakhtim lahaa bish-shaalihaat)\n\nSemoga Allah SWT senantiasa memberikan kekuatan jasmani dan rohani, memanjangkan umur dalam ketaatan, serta mengaruniakan kebahagiaan lahir dan batin bersama keluarga tercinta.\n\n[SENDER]",
                 "Selamat Ulang Tahun yang ke-60 kagem [TARGET] 🤲🌟\n\nاللَّهُمَّ إنَّا نَسْأَلُكَ العَفْوَ وَالعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ وَارْزُقْهَا حُسْنَ الْخَاتِمَةِ\n\n(Allahumma inna nas'alukal 'afwa wal 'aafiyata fid-dunya wal aakhirah warzuqhaa husnal khaatimah)\n\nSemoga Allah SWT senantiasa mengaruniakan kesehatan yang sempurna, perlindungan, kemudahan dalam setiap langkah, serta keberkahan rezeki di usia emas ini. Aamiin YRA.\n\n[SENDER]",
-
-                // Doa 4: Pengampunan Dosa & Perlindungan Masa Tua
                 "Selamat Milad / Bertambah Usia yang ke-60 kagem [TARGET] 🌿✨\n\nاللَّهُمَّ اجْعَلْ خَيْرَ عُمْرِهَا آخِرَهُ وَخَيْرَ عَمَلِهَا خَوَاتِيمَهُ وَخَيْرَ أَيَّامِهَا يَوْمَ تَلْقَاكَ\n\n(Allahummaj'al khaira 'umrihaa aakhirahu wa khaira 'amalihaa khawaatiimahaa wa khaira ayyaamihaa yauma talqaak)\n\nSemoga di umur yang ke-60 ini, Allah jadikan akhir usianya sebagai masa terbaik, selalu dianugerahi kesabaran, kesehatan, dan senantiasa berada dalam lindungan-Nya.\n\n[SENDER]"
             ]
         };
 
-        // 4 Variasi Doa Orang Sakit / Kesembuhan
-        const sickVariations = [
-            "Syafakallah / Syafakillah untuk [TARGET] 🤲✨\n\nاللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِ أَنْتَ الشَّافِي لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ شِفَاءً لاَ يُغَادِرُ سَقَمًا\n\n\"Ya Allah, Tuhan seluruh manusia, hilangkanlah penyakit ini. Sembuhkanlah, Engkaulah Maha Penyembuh. Tidak ada kesembuhan kecuali kesembuhan-Mu, kesembuhan yang tidak meninggalkan rasa sakit.\" (HR. Bukhari & Muslim)\n\nSemoga Allah SWT melimpahkan kesembuhan yang sempurna dan mengembalikan kesehatan [TARGET] seperti sediakala.\n\n[SENDER]",
-            "Lekas sembuh untuk [TARGET] 🤲\n\nلاَ بَأْسَ طَهُورٌ إِنْ شَاءَ اللهُ\n\n\"Tidak mengapa, semoga sakitmu ini menjadi pembersih dosa-dosa, insya Allah.\"\n\nSemoga ujian sakit ini menjadi pembersih kekhilafan, serta Allah segera angkat penyakitnya dan berikan kesabaran ekstra.\n\n[SENDER]",
-            "Semoga lekas pulih untuk [TARGET] 🌿✨\n\nاللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي\n\n\"Ya Allah, berikanlah kesehatan pada badanku, berikanlah kesehatan pada pendengaranku, berikanlah kesehatan pada penglihatanku.\"\n\nMendoakan agar [TARGET] segera diberikan kesembuhan total, keafiatan fisik maupun jasmani, serta kembali beraktivitas dengan nyaman.\n\n[SENDER]",
-            "Syafakallah / Syafakillah kagem/untuk [TARGET] 🤲\n\nأَسْأَلُ اللهَ العَظِيْمَ رَبَّ العَرْشِ العَظِيْمِ أَنْ يَشْفِيَكَ\n\n\"Aku memohon kepada Allah Yang Maha Agung, Tuhan pemilik 'Arsy yang agung, agar memberikan kesembuhan kepadamu.\"\n\nSemoga Allah SWT mengijabah doa ini dan mengangkat segala rasa sakit yang sedang dirasakan.\n\n[SENDER]"
-        ];
-
-        const birthChildVariationsID = [
-            "Selamat atas kelahiran putra/putri tercinta [BABY_NAME]! 👶✨\n\nSelamat untuk [PARENTS]. Semoga kehadiran si kecil membawa kebahagiaan, melengkapi kehangatan keluarga, serta tumbuh menjadi anak yang sehat, cerdas, dan membanggakan.\n\n[SENDER]",
-            "Barakallahu laka fil mauhubi laka wa syakartal-wahiba wa balagha asyuddahu wa ruziqta birrahu. 🤲\n\nSelamat atas lahirnya [BABY_NAME] untuk [PARENTS]! Semoga menjadi anak yang soleh/solehah, berbakti kepada kedua orang tua, serta membawa keberkahan bagi keluarga.\n\n[SENDER]",
-            "Selamat ya atas kelahiran [BABY_NAME]! 🍼🎉\n\nSemoga ibu dan bayinya senantiasa diberikan kesehatan, pemulihan yang cepat, serta melimpah rezeki dan kebahagiaan untuk keluarga [PARENTS].\n\n[SENDER]"
-        ];
-
-        const birthGrandchildVariationsID = [
-            "Selamat atas kelahiran cucu tercinta [BABY_NAME]! 👶🎉\n\nSelamat untuk [GRANDPARENTS] yang kini resmi jadi kakek/nenek. Semoga si kecil selalu sehat, tumbuh cerdas, dan menjadi penyejuk hati serta kebanggaan bagi seluruh keluarga besar.\n\n[SENDER]",
-            "Selamat atas hadirnya anggota keluarga baru, cucu tercinta [BABY_NAME]! ✨\n\nKebahagiaan yang luar biasa untuk [GRANDPARENTS] dan keluarga besar. Semoga kehadiran si kecil membawa suasana baru yang penuh suka cita, keberkahan, dan kasih sayang.\n\n[SENDER]"
-        ];
-
-        const eidVariations = [
-            "🌙✨ SELAMAT HARI RAYA IDUL FITRI ✨🌙\nKagem [TARGET],\n\nتَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ صَالِحَ الْأَعْمَالِ\n\nSemoga Allah menerima seluruh amal ibadah kita, mengampuni segala khilaf dan dosa, serta memberikan keberkahan, kesehatan, dan kebahagiaan untuk kita dan keluarga.\n\nمِنَ الْعَائِدِيْنَ وَالْفَائِزِيْنَ كُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ\n\nMohon maaf lahir dan batin. 🤲\nSemoga kita senantiasa berada dalam rahmat dan ridha Allah SWT. 🌿\n\n[SENDER]",
-            "🌙 Selamat Hari Raya Idul Fitri 🌙\nKagem [TARGET],\n\nتَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ \n\nSemoga Allah menerima amal ibadah kita dan menjadikan kita kembali dalam keadaan suci.\n\nMohon maaf lahir dan batin.\n\n[SENDER]"
-        ];
-
-        const templates = {
+        const staticTemplates = {
             birthday_elder_jv: "Sugeng ambal warsa ingkang kaping 60 th kagem [TARGET] 🤲✨\n\nبَارَكَ اللهُ فِي عُمْرِهِ وَنَفَعَ اللهُ بِهِ فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ\n\nMugi-mugi ing umur 60 taun punika, Gusti Allah SWT tansah maringi kasarasan, jembar rezekinipun, katentreman atine, sarta berkah umuripun kagem kulawarga lan sesami. Aamiin YRA.\n\n[SENDER]",
-            birth_child_jv: "Sugeng atas miyosipun putra/putri [BABY_NAME] kagem [PARENTS]! 👶✨\n\nMugi-mugi si kecil tansah kaparingan kasarasan, jangkep sarira, cerdas, lan dados putra/putri ingkang mikul duwur mendhem jero marang tiyang sepuh lan migunani tumrap sesami.\n\n[SENDER]",
-            birth_grandchild_jv: "Sugeng ambal warsa ing donya kagem putu tercinta [BABY_NAME]! 👶✨\n\nSelamat kagem [GRANDPARENTS] ingkang sampun resmi dados mbah/opa-oma. Mugi-mugi si kecil tansah pinaringan kesehatan, cerdas, lan dados penyejuk ati sarta kebanggaane kulawarga besar.\n\n[SENDER]",
-            sick_jv: "Sugeng pinaringan kesembuhan kagem [TARGET] 🤲✨\n\nلاَ بَأْسَ طَهُورٌ إِنْ شَاءَ اللهُ\n\nMugi-mugi Gusti Allah SWT ingkang Maha Welas lan Asih ngangkat sedaya penyakitipun [TARGET], maringi pangapunten lepat, lan maringi berkah kesehatan ingkang jangkep.\n\n[SENDER]",
-            birthday_id: "Barakallah fii umrik untuk [TARGET]!\n\nSemoga di usia yang baru ini senantiasa diberikan kesehatan, keberkahan hidup, dimudahkan segala urusannya, serta tercapai semua hajat dan cita-citanya. Aamiin!\n\nSalam hangat,\n[SENDER]",
-            birthday_jv: "Sugeng tanggap warsa kagem [TARGET]!\n\nMugi-mugi tansah pinaringan séhat walafiat, berkah rezekipun, panjang umure, lan sembarang kalir kelampahan sedaya gagasane. Aamiin ya Rabbal 'alamin.\n\n[SENDER]",
-            eid_jv: "Taqabbalallahu minna wa minkum.\n\nNgaturaken sedoyo sugeng riyadi Idul Fitri kagem [TARGET]. Mohon maaf lahir lan batin bilih wonten kelepatan lampah ucapan kulo sakeluarga. Mugi tansah pinaringan wilujeng.\n\n[SENDER]"
+            sick_id: "Syafakallah / Syafakillah untuk [TARGET] 🤲✨\n\nاللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِ أَنْتَ الشَّافِي لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ شِفَاءً لاَ يُغَادِرُ سَقَمًا\n\nSemoga Allah SWT melimpahkan kesembuhan yang sempurna dan mengembalikan kesehatan [TARGET] seperti sediakala.\n\n[SENDER]",
+            birthday_id: "Barakallah fii umrik untuk [TARGET]!\n\nSemoga di usia yang baru ini senantiasa diberikan kesehatan, keberkahan hidup, dimudahkan segala urusannya, serta tercapai semua hajatnya. Aamiin!\n\n[SENDER]",
+            birthday_jv: "Sugeng tanggap warsa kagem [TARGET]!\n\nMugi-mugi tansah pinaringan séhat walafiat, berkah rezekipun, panjang umure, lan sembarang kalir kelampahan sedaya gagasane. Aamiin.\n\n[SENDER]",
+            eid_id: "Selamat Hari Raya Idul Fitri untuk [TARGET]. Mohon maaf lahir dan batin. Semoga Allah menerima seluruh amal ibadah kita. Aamiin.\n\n[SENDER]",
+            eid_jv: "Taqabbalallahu minna wa minkum. Ngaturaken sugeng riyadi Idul Fitri kagem [TARGET]. Mohon maaf lahir lan batin bilih wonten kelepatan. Mugi tansah pinaringan wilujeng.\n\n[SENDER]"
         };
 
-        const unicodeMaps = {
-            bold: { a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴', h: '𝗵', i: '𝗶', j: '𝗷', k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻', o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁', u: '𝘂', v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇', A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚', H: '𝗛', I: '𝗜', J: '𝗝', K: '𝗞', L: '🇱', M: '𝗠', N: '𝗡', O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧', U: '𝗨', V: '𝗩', W: '𝗪', X: '𝘟', Y: '𝗬', Z: '𝗁', '0': '𝟬', '1': '𝟭', '2': '𝟮', '3': '𝟯', '4': '𝟰', '5': '𝟱', '6': '𝟲', '7': '𝟩', '8': '𝟴', '9': '𝟵' },
-            italic: { a: '𝘢', b: '𝘣', c: '𝘤', d: '𝘥', e: '𝘦', f: '𝘧', g: '𝘨', h: '𝘩', i: '𝘪', j: '𝘫', k: '𝘬', l: '𝘭', m: '𝘮', n: '𝘯', o: '𝘰', p: '𝘱', q: '𝘲', r: '𝘳', s: '𝘴', t: '𝘵', u: '𝘶', v: '𝘷', w: '𝘸', x: '𝘹', y: '𝘺', z: '𝘻', A: '𝘈', B: '𝘉', C: '𝘊', D: '𝘋', E: '𝘌', F: '𝘍', G: '𝘎', H: '𝐻', I: '𝘐', J: '𝘑', K: '𝘒', L: '🇱', M: '𝘔', N: '𝘕', O: '𝘖', P: '𝘗', Q: '𝘘', R: '𝘙', S: '𝘚', T: '𝘛', U: '𝘜', V: '𝘝', W: '𝘞', X: '𝘟', Y: '𝘠', Z: '𝘡' },
-            script: { a: '𝒶', b: '𝒷', c: '𝒸', d: '𝒹', e: 'ℯ', f: '𝒻', g: 'ℊ', h: '𝒽', i: '𝒾', j: '𝒿', k: '```javascript
-            script: { a: '𝒶', b: '𝒷', c: '𝒸', d: '𝒹', e: 'ℯ', f: '𝒻', g: 'ℊ', h: '𝒽', i: '𝒾', j: '𝒿', k: '𝓀', l: '𝓁', m: '𝓂', n: '𝓃', o: 'ℴ', p: '𝓅', q: '𝓆', r: '𝓇', s: '𝓈', t: '𝓉', u: '𝓊', v: '𝓋', w: '𝓌', x: '𝓍', y: '𝓎', z: '𝓏', A: '𝒜', B: 'ℬ', C: '𝒞', D: '𝒟', E: 'ℰ', F: 'ℱ', G: '𝒢', H: 'ℋ', I: 'ℐ', J: '𝒥', K: '𝒦', L: 'ℒ', M: 'ℳ', N: '𝒩', O: '𝒪', P: '𝒫', Q: '𝒬', R: 'ℛ', S: '𝒮', T: '𝒯', U: '𝒰', V: '𝒱', W: '𝒲', X: '𝒳',
+        // DOM Elements
+        const templateSelect = document.getElementById('templateSelect');
+        const genderSelect = document.getElementById('genderSelect');
+        const genderGroup = document.getElementById('genderGroup');
+        const targetInput = document.getElementById('targetInput');
+        const senderInput = document.getElementById('senderInput');
+        const resultText = document.getElementById('resultText');
+        const randomBtn = document.getElementById('randomBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const copyAlert = document.getElementById('copyAlert');
+
+        let currentIndex = 0;
+
+        function generateMessage() {
+            const category = templateSelect.value;
+            const gender = genderSelect.value;
+            const target = targetInput.value.trim() || 'Bpk/Ibu';
+            const sender = senderInput.value.trim() ? `Salam hangat,\n${senderInput.value.trim()}` : '';
+
+            let rawText = '';
+
+            if (category === 'birthday_elder_id') {
+                genderGroup.style.display = 'flex';
+                const list = birthdayElderVariations[gender];
+                rawText = list[currentIndex % list.length];
+            } else {
+                genderGroup.style.display = 'none';
+                rawText = staticTemplates[category] || '';
+            }
+
+            // Replace Placeholders
+            let finalMessage = rawText.replace(/\[TARGET\]/g, target);
+            finalMessage = finalMessage.replace(/\[SENDER\]/g, sender);
+
+            resultText.value = finalMessage.trim();
+        }
+
+        // Event Listeners
+        templateSelect.addEventListener('change', () => {
+            currentIndex = 0;
+            generateMessage();
+        });
+
+        genderSelect.addEventListener('change', () => {
+            generateMessage();
+        });
+
+        targetInput.addEventListener('input', generateMessage);
+        senderInput.addEventListener('input', generateMessage);
+
+        randomBtn.addEventListener('click', () => {
+            currentIndex++;
+            generateMessage();
+        });
+
+        copyBtn.addEventListener('click', () => {
+            resultText.select();
+            document.execCommand('copy');
+            copyAlert.style.display = 'block';
+            setTimeout(() => {
+                copyAlert.style.display = 'none';
+            }, 2500);
+        });
+
+        resetBtn.addEventListener('click', () => {
+            targetInput.value = 'Bpk. H. Ahmad';
+            senderInput.value = 'Fatur dan keluarga';
+            templateSelect.value = 'birthday_elder_id';
+            genderSelect.value = 'male';
+            currentIndex = 0;
+            generateMessage();
+        });
+
+        // Unicode Conversion logic
+        document.querySelectorAll('.btn-unicode').forEach(button => {
+            button.addEventListener('click', () => {
+                const style = button.getAttribute('data-style');
+                let text = resultText.value;
+
+                if (style === 'bold') {
+                    text = text.replace(/[a-zA-Z0-9]/g, char => {
+                        const code = char.charCodeAt(0);
+                        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D5D4 + code - 65);
+                        if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D5EE + code - 97);
+                        if (code >= 48 && code <= 57) return String.fromCodePoint(0x1D7EC + code - 48);
+                        return char;
+                    });
+                } else if (style === 'italic') {
+                    text = text.replace(/[a-zA-Z]/g, char => {
+                        const code = char.charCodeAt(0);
+                        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D608 + code - 65);
+                        if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D622 + code - 97);
+                        return char;
+                    });
+                } else if (style === 'mono') {
+                    text = text.replace(/[a-zA-Z0-9]/g, char => {
+                        const code = char.charCodeAt(0);
+                        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D670 + code - 65);
+                        if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D68A + code - 97);
+                        if (code >= 48 && code <= 57) return String.fromCodePoint(0x1D7F6 + code - 48);
+                        return char;
+                    });
+                }
+
+                resultText.value = text;
+            });
+        });
+
+        // Jalankan render awal saat halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', generateMessage);
+        generateMessage();
+    </script>
+</body>
+</html>
