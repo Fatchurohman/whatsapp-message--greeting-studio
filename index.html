@@ -7,8 +7,8 @@
     
     <!-- Meta SEO Utama -->
     <title>WhatsApp Message & Greeting Studio - Format Chat WA Otomatis Gratis</title>
-    <meta name="description" content="Generator pesan WhatsApp & ucapan otomatis gratis. Buat ucapan ulang tahun, doa kesembuhan, ucapan Hari Raya, dan konversi teks tebal/miring untuk WA secara cepat dan praktis.">
-    <meta name="keywords" content="whatsapp message generator, generator pesan wa, ucapan ulang tahun wa, doa islami whatsapp, format teks wa bold italic, wa greeting studio">
+    <meta name="description" content="Generator pesan WhatsApp & ucapan otomatis gratis. Buat ucapan ulang tahun, doa kesembuhan, ucapan Hari Raya, duka cita/belasungkawa, dan konversi teks tebal/miring untuk WA secara cepat dan praktis.">
+    <meta name="keywords" content="whatsapp message generator, generator pesan wa, ucapan ulang tahun wa, doa islami whatsapp, ucapan duka cita wa, doa mayit arab, format teks wa bold italic, wa greeting studio">
     <meta name="author" content="fatur62">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://wa-message-generator.vercel.app">
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wa-message-generator.vercel.app">
     <meta property="og:title" content="WhatsApp Message & Greeting Studio - Generator Pesan WA Otomatis">
-    <meta property="og:description" content="Buat format ucapan ulang tahun, doa kesembuhan, dan teks unik WhatsApp secara instan dan gratis.">
+    <meta property="og:description" content="Buat format ucapan ulang tahun, doa kesembuhan, belasungkawa, dan teks unik WhatsApp secara instan dan gratis.">
     <meta property="og:image" content="https://wa-message-generator.vercel.app/og-image.png">
 
     <!-- Twitter Card -->
@@ -281,6 +281,10 @@
             <div class="form-group">
                 <label for="templateSelect">Pilih Kategori Ucapan</label>
                 <select id="templateSelect">
+                    <!-- Opsi Belasungkawa / Duka Cita (Baru) -->
+                    <option value="condolence_id">Belasungkawa / Duka Cita (Bahasa Indonesia + Doa Jenazah Arab Dhomir)</option>
+                    
+                    <!-- Opsi Islami / Doa Arab -->
                     <option value="birthday_elder_id">Ulang Tahun Kesepuhan / Senior (Bahasa Indonesia + Doa Arab Dhomir)</option>
                     <option value="birthday_elder_jv">Ulang Tahun Kesepuhan / Sepuh (Bahasa Jawa Halus + Doa Arab)</option>
                     <option value="sick_id">Doa Kesembuhan / Orang Sakit (Bahasa Indonesia + Doa Hadis)</option>
@@ -288,6 +292,8 @@
                     <option value="birthday_jv">Ulang Tahun (Bahasa Jawa / Ambyar Style)</option>
                     <option value="eid_id">Hari Raya / Lebaran (Bahasa Indonesia)</option>
                     <option value="eid_jv">Hari Raya / Lebaran (Bahasa Jawa Krama)</option>
+                    
+                    <!-- Opsi Universal / Elegan -->
                     <option value="birthday_universal_elegan">Ulang Tahun Universal - Elegan & Penuh Doa Kebaikan</option>
                     <option value="birthday_universal_hangat">Ulang Tahun Universal - Penuh Hangat & Pengabdian Usia</option>
                     <option value="birthday_universal_puitis">Ulang Tahun Universal - Puitis & Inspiratif</option>
@@ -296,16 +302,16 @@
             </div>
 
             <div class="form-group conditional-group" id="genderGroup">
-                <label for="genderSelect">Jenis Kelamin Yang Berulang Tahun (Dhomir Doa Arab)</label>
+                <label for="genderSelect">Jenis Kelamin Almarhum/Almarhumah / Yang Didoakan (Dhomir Arab)</label>
                 <select id="genderSelect">
-                    <option value="male">Laki-laki (Bapak / Ustadz / Dhomir -hu)</option>
-                    <option value="female">Perempuan (Ibu / Ustadzah / Dhomir -ha)</option>
+                    <option value="male">Laki-laki (Almarhum / Bapak / Dhomir -hu)</option>
+                    <option value="female">Perempuan (Almarhumah / Ibu / Dhomir -ha)</option>
                 </select>
             </div>
 
             <div class="form-group" id="targetGroup">
-                <label for="targetInput">Nama Yang Berulang Tahun / Penerima</label>
-                <input type="text" id="targetInput" value="Bpk. H. Ahmad" placeholder="Contoh: Bpk. H. Ahmad / Ibu Hj. Siti">
+                <label for="targetInput">Nama Yang Didoakan / Penerima</label>
+                <input type="text" id="targetInput" value="Almarhum Bpk. H. Ahmad" placeholder="Contoh: Almarhum Bpk. Ahmad / Ibu Hj. Siti">
             </div>
 
             <div class="form-group">
@@ -347,11 +353,25 @@
 
     <article class="seo-article">
         <h2>Tentang WhatsApp Message & Greeting Studio</h2>
-        <p><strong>WhatsApp Message & Greeting Studio</strong> adalah aplikasi web praktis untuk membuat format ucapan WhatsApp secara otomatis. Dilengkapi dengan berbagai pilihan redaksi ucapan ulang tahun (baik Bahasa Indonesia maupun Bahasa Jawa Krama), doa kesembuhan, hingga ucapan Hari Raya Idul Fitri.</p>
+        <p><strong>WhatsApp Message & Greeting Studio</strong> adalah aplikasi web praktis untuk membuat format ucapan WhatsApp secara otomatis. Dilengkapi dengan berbagai pilihan redaksi ucapan ulang tahun, doa kesembuhan, ucapan duka cita/belasungkawa, hingga ucapan Hari Raya Idul Fitri.</p>
         <p>Fitur unggulan generator ini adalah penyesuaian tata bahasa <em>dhomir</em> doa Arab (laki-laki/perempuan) secara otomatis serta opsi pengubah gaya teks Unicode (tebal, miring, monospace) agar pesan WhatsApp kamu terlihat lebih menarik dan berkesan.</p>
     </article>
 
     <script>
+        // Variasi Belasungkawa / Duka Cita dengan Dhomir Arab (Male & Female)
+        const condolenceVariations = {
+            male: [
+                "Inna lillahi wa inna ilaihi raji'un 🤲🖤\n\nTurut berduka cita yang mendalam atas wafatnya [TARGET].\n\nاللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ وَأَكْرِمْ نُزُلَهُ وَوَسِّعْ مَدْخَلَهُ\n\n(Allahummaghfirlahu warhamhu wa 'aafihi wa'fu 'anhu wa akrim nuzulahu wa wassi' madkhalahu)\n\nSemoga Allah SWT mengampuni segala dosa dan khilaf almarhum, menerima seluruh amal ibadahnya, serta menempatkannya di tempat terbaik di sisi-Nya. Semoga keluarga yang ditinggalkan dianugerahi ketabahan, kesabaran, dan keikhlasan. Aamiin YRA.\n\n[SENDER]",
+                "Inna lillahi wa inna ilaihi raji'un 🕊️✨\n\nKami sekeluarga menyampaikan rasa duka cita atas berpulangnya [TARGET].\n\nاللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَاجْعَلْ قَبْرَهُ رَوْضَةً مِنْ رِيَاضِ الْجَنَّةِ\n\n(Allahummaghfirlahu warhamhu waj'al qabrahu raudhatan min riyaadhil jannah)\n\nSemoga Allah SWT melapangkan kuburnya, menerangi jalannya, dan mengaruniakan husnul khatimah. Semoga seluruh keluarga yang ditinggalkan senantiasa diberikan kekuatan dan keikhlasan.\n\n[SENDER]",
+                "Inna lillahi wa inna ilaihi raji'un 🤲🌿\n\nTurut berbelasungkawa atas wafatnya [TARGET].\n\nاللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا وَاغْفِرْ لَهُ\n\n(Allahumma'-jurnii fii mushiibatii wa akhlif lii khairan minhaa waghfirlahu)\n\nSemoga almarhum husnul khatimah, diampuni segala dosanya, dan diterima semua amal kebaikannya. Semoga keluarga yang ditinggalkan diberi keteguhan hati.\n\n[SENDER]"
+            ],
+            female: [
+                "Inna lillahi wa inna ilaihi raji'un 🤲🖤\n\nTurut berduka cita yang mendalam atas wafatnya [TARGET].\n\nاللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَعَافِهَا وَاعْفُ عَنْهَا وَأَكْرِمْ نُزُلَهَا وَوَسِّعْ مَدْخَلَهَا\n\n(Allahummaghfirlaha warhamha wa 'aafihaa wa'fu 'anhaa wa akrim nuzulahaa wa wassi' madkhalahaa)\n\nSemoga Allah SWT mengampuni segala dosa dan khilaf almarhumah, menerima seluruh amal ibadahnya, serta menempatkannya di tempat terbaik di sisi-Nya. Semoga keluarga yang ditinggalkan dianugerahi ketabahan, kesabaran, dan keikhlasan. Aamiin YRA.\n\n[SENDER]",
+                "Inna lillahi wa inna ilaihi raji'un 🕊️✨\n\nKami sekeluarga menyampaikan rasa duka cita atas berpulangnya [TARGET].\n\nاللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَاجْعَلْ قَبْرَهَا رَوْضَةً مِنْ رِيَاضِ الْجَنَّةِ\n\n(Allahummaghfirlaha warhamha waj'al qabrahaa raudhatan min riyaadhil jannah)\n\nSemoga Allah SWT melapangkan kuburnya, menerangi jalannya, dan mengaruniakan husnul khatimah. Semoga seluruh keluarga yang ditinggalkan senantiasa diberikan kekuatan dan keikhlasan.\n\n[SENDER]",
+                "Inna lillahi wa inna ilaihi raji'un 🤲🌿\n\nTurut berbelasungkawa atas wafatnya [TARGET].\n\nاللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا وَاغْفِرْ لَهَا\n\n(Allahumma'-jurnii fii mushiibatii wa akhlif lii khairan minhaa waghfirlahaa)\n\nSemoga almarhumah husnul khatimah, diampuni segala dosanya, dan diterima semua amal kebaikannya. Semoga keluarga yang ditinggalkan diberi keteguhan hati.\n\n[SENDER]"
+            ]
+        };
+
         const birthdayElderVariations = {
             male: [
                 "Selamat Milad / Ulang Tahun kagem [TARGET] 🤲✨\n\nبَارَكَ اللهُ فِي عُمْرِهِ وَنَفَعَ اللهُ بِهِ فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ\n\n(Barakallahu fii 'umrihi wa nafa'allahu bihi fid-diini wad-dunya wal-aakhirah)\n\nSemoga di usia yang penuh keberkahan ini, Allah SWT senantiasa melimpahkan kesehatan, ketenangan jiwa, serta menjadikan sisa usia beliau semakin bernilai ibadah.\n\n[SENDER]",
@@ -401,7 +421,11 @@
 
             let rawText = '';
 
-            if (category === 'birthday_elder_id') {
+            if (category === 'condolence_id') {
+                genderGroup.style.display = 'flex';
+                const list = condolenceVariations[gender] || [];
+                rawText = list.length > 0 ? list[currentIndex % list.length] : '';
+            } else if (category === 'birthday_elder_id') {
                 genderGroup.style.display = 'flex';
                 const list = birthdayElderVariations[gender] || [];
                 rawText = list.length > 0 ? list[currentIndex % list.length] : '';
@@ -452,9 +476,9 @@
         });
 
         resetBtn.addEventListener('click', () => {
-            targetInput.value = 'Bpk. H. Ahmad';
+            targetInput.value = 'Almarhum Bpk. H. Ahmad';
             senderInput.value = 'Fatur dan keluarga';
-            templateSelect.value = 'birthday_elder_id';
+            templateSelect.value = 'condolence_id';
             genderSelect.value = 'male';
             currentIndex = 0;
             generateMessage();
