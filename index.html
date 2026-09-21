@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta name="google-site-verification" content="u1Aft-V8WlGxU4ri7AjsDU5F17wHJTXcspXpjNlvfhc" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta SEO Utama -->
+    <title>WhatsApp Message & Greeting Studio - Format Chat WA Otomatis Gratis</title>
+    <meta name="description" content="Generator pesan WhatsApp & ucapan otomatis gratis. Buat ucapan ulang tahun, doa kesembuhan, ucapan Hari Raya, dan konversi teks tebal/miring untuk WA secara cepat dan praktis.">
+    <meta name="keywords" content="whatsapp message generator, generator pesan wa, ucapan ulang tahun wa, doa islami whatsapp, format teks wa bold italic, wa greeting studio">
+    <meta name="author" content="fatur62">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wa-message-generator.vercel.app"> <!-- Ganti sesuai URL domain aktif kamu -->
+
+    <!-- Open Graph / Facebook / WhatsApp Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wa-message-generator.vercel.app">
+    <meta property="og:title" content="WhatsApp Message & Greeting Studio - Generator Pesan WA Otomatis">
+    <meta property="og:description" content="Buat format ucapan ulang tahun, doa kesembuhan, dan teks unik WhatsApp secara instan dan gratis.">
+    <meta property="og:image" content="https://wa-message-generator.vercel.app/og-image.png"> <!-- Opsional: ganti link gambar preview -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WhatsApp Message & Greeting Studio">
+    <meta name="twitter:description" content="Generator pesan WhatsApp & ucapan otomatis gratis dengan variasi huruf Unicode unik.">
+
+    <!-- Structured Data (JSON-LD) untuk Google Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "WhatsApp Message & Greeting Studio",
+      "url": "https://wa-message-generator.vercel.app",
+      "description": "Aplikasi web gratis untuk membuat format ucapan dan pesan WhatsApp otomatis beserta konversi gaya huruf Unicode.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "fatur62"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #075e54;
+            --secondary-color: #128c7e;
+            --gold-bg-outer: linear-gradient(135deg, #f7f3e9 0%, #ebe3cf 100%);
+            --card-bg: #ffffff;
+            --gold-primary: #b8860b;
+            --gold-secondary: #d4af37;
+            --gold-dark: #8b6508;
+            --gold-light: #fefcf5;
+            --gold-border: #e2c97c;
+            --gold-glow: rgba(212, 175, 55, 0.25);
+            --text-color: #1a1714;
+            --border-color: #dcd3be;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background: var(--gold-bg-outer);
+            color: var(--text-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(184, 134, 11, 0.15), 0 2px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gold-border);
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        .developer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 4px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, #112e29 0%, #051c18 100%);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.2), 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .gold-orb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #fffdf0 0%, #ffd700 40%, #b8860b 80%, #654321 100%);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+            position: relative;
+        }
+        .gold-text {
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+            background: linear-gradient(to bottom, #fffdf0 0%, #ffd700 35%, #daa520 60%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #3b3021;
+        }
+        select, input, textarea {
+            padding: 12px 14px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            background-color: #fff;
+            color: var(--text-color);
+            transition: all 0.25s ease;
+        }
+        select:focus, input:focus, textarea:focus {
+            border-color: var(--gold-secondary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+            background-color: var(--gold-light);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 230px;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+        .conditional-group {
+            background: linear-gradient(135deg, #fbf8f0 0%, #f7f0df 100%);
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid var(--gold-border);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .unicode-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+        }
+        .btn-unicode {
+            background: linear-gradient(180deg, #ffffff 0%, #faf6ec 100%);
+            border: 1px solid var(--gold-border);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            transition: all 0.2s;
+        }
+        .btn-unicode:hover {
+            background: linear-gradient(180deg, #fffdf7 0%, #f5eacb 100%);
+            border-color: var(--gold-primary);
+        }
+        .btn-unicode span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 3px;
+            color: var(--gold-dark);
+        }
+        .action-row {
+            display: flex;
+            gap: 12px;
+        }
+        .btn {
+            flex: 1;
+            background: linear-gradient(135deg, #c59b27 0%, #9e7208 100%);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-align: center;
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+        }
+        .btn-random {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%) !important;
+        }
+        .btn-random:hover {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%) !important;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-dark);
+        }
+        .alert {
+            padding: 12px;
+            background: #f4ebd0;
+            color: #5c4308;
+            border: 1px solid var(--gold-border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+            text-align: center;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid var(--gold-border);
+            margin: 5px 0;
+            opacity: 0.7;
+        }
+        /* Bagian Penjelasan SEO Tambahan */
+        .seo-article {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 24px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            border: 1px solid var(--gold-border);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #4a3f2c;
+        }
+        .seo-article h2 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        .seo-article p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WhatsApp Message & Greeting Studio</h1>
+            <div class="developer-badge">
+                <div class="gold-orb"></div>
+                <span class="gold-text">developer : fatur62</span>
+            </div>
+        </header>
+        <div class="content">
+            <div class="form-group">
+                <label for="templateSelect">Pilih Kategori Ucapan</label>
+                <select id="templateSelect">
+                    <!-- Opsi Belasungkawa / Duka Cita (Kategori Baru) -->
+                    <option value="condolence_id">Belasungkawa / Duka Cita (Bahasa Indonesia + Doa Arab Dhomir)</option>
+
+                    <!-- Opsi Islami / Doa Arab -->
+                    <option value="birthday_elder_id">Ulang Tahun Kesepuhan / Senior (Bahasa Indonesia + Doa Arab Dhomir)</option>
+                    <option value="birthday_elder_jv">Ulang Tahun Kesepuhan / Sepuh (Bahasa Jawa Halus + Doa Arab)</option>
+                    <option value="sick_id">Doa Kesembuhan / Orang Sakit (Bahasa Indonesia + Doa Hadis)</option>
+                    <option value="birthday_id">Ulang Tahun (Bahasa Indonesia Santai)</option>
+                    <option value="birthday_jv">Ulang Tahun (Bahasa Jawa / Ambyar Style)</option>
+                    <option value="eid_id">Hari Raya / Lebaran (Bahasa Indonesia)</option>
+                    <option value="eid_jv">Hari Raya / Lebaran (Bahasa Jawa Krama)</option>
+                    
+                    <!-- Opsi Universal / Elegan (Tanpa Doa Arab) -->
+                    <option value="birthday_universal_elegan">Ulang Tahun Universal - Elegan & Penuh Doa Kebaikan</option>
+                    <option value="birthday_universal_hangat">Ulang Tahun Universal - Penuh Hangat & Pengabdian Usia</option>
+                    <option value="birthday_universal_puitis">Ulang Tahun Universal - Puitis & Inspiratif</option>
+                    <option value="birthday_universal_singkat">Ulang Tahun Universal - Singkat, Padat & Pengayom</option>
+                </select>
+            </div>
+
+            <!-- Group Input Jenis Kelamin untuk Dhomir Arab -->
+            <div class="form-group conditional-group" id="genderGroup">
+                <label for="genderSelect" id="genderLabel">Jenis Kelamin Yang Berulang Tahun (Dhomir Doa Arab)</label>
+                <select id="genderSelect">
+                    <option value="male">Laki-laki (Bapak / Ustadz / Dhomir -hu)</option>
+                    <option value="female">Perempuan (Ibu / Ustadzah / Dhomir -ha)</option>
+                </select>
+            </div>
+
+            <!-- Group Input Target Generik -->
+            <div class="form-group" id="targetGroup">
+                <label for="targetInput" id="targetLabel">Nama Yang Berulang Tahun / Penerima</label>
+                <input type="text" id="targetInput" value="Bpk. H. Ahmad" placeholder="Contoh: Bpk. H. Ahmad / Ibu Hj. Siti">
+            </div>
+
+            <div class="form-group">
+                <label for="senderInput">Nama / Pengirim (Opsional)</label>
+                <input type="text" id="senderInput" value="Fatur dan keluarga" placeholder="Contoh: Fatur dan kelg">
+            </div>
+
+            <div class="form-group">
+                <label for="resultText">Hasil Pesan Utama</label>
+                <textarea id="resultText"></textarea>
+            </div>
+
+            <div id="copyAlert" class="alert">✨ Pesan berhasil disalin ke clipboard!</div>
+
+            <div class="action-row">
+                <button class="btn btn-random" id="randomBtn">Acak Redaksi Lagi</button>
+                <button class="btn" id="copyBtn">Salin Pesan</button>
+                <button class="btn btn-outline" id="resetBtn">Reset</button>
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label>Konversi Variasi Huruf (Klik untuk Terapkan ke Pesan di Atas)</label>
+                <div class="unicode-options">
+                    <button class="btn-unicode" data-style="bold">
+                        <span>Tebal (Sans)</span> 𝗯𝗼𝗹𝗱 𝘁𝗲𝘅𝘁
+                    </button>
+                    <button class="btn-unicode" data-style="italic">
+                        <span>Miring (Sans)</span> 𝘪𝘵alic 𝘵𝗲𝘅𝘁
+                    </button>
+                    <button class="btn-unicode" data-style="mono">
+                        <span>Monospace</span> 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Artikel Pendukung SEO (Penting untuk Indeks Google) -->
+    <article class="seo-article">
+        <h2>Tentang WhatsApp Message & Greeting Studio</h2>
+        <p><strong>WhatsApp Message & Greeting Studio</strong> adalah aplikasi web praktis untuk membuat format ucapan WhatsApp secara otomatis. Dilengkapi dengan berbagai pilihan redaksi ucapan ulang tahun (baik Bahasa Indonesia maupun Bahasa Jawa Krama), doa kesembuhan, ucapan belasungkawa, hingga ucapan Hari Raya Idul Fitri.</p>
+        <p>Fitur unggulan generator ini adalah penyesuaian tata bahasa <em>dhomir</em> doa Arab (laki-laki/perempuan) secara otomatis serta opsi pengubah gaya teks Unicode (tebal, miring, monospace) agar pesan WhatsApp kamu terlihat lebih menarik dan berkesan.</p>
+    </article>
+
+    <script>
+        // 1. Variasi Doa Arab Ulang Tahun Lansia / Kesepuhan (Dhomir Male & Female)
+        const birthdayElderVariations = {
+            male: [
+                "Selamat Milad / Ulang Tahun kagem [TARGET] 🤲✨\n\nبَارَكَ اللهُ فِي عُمْرِهِ وَنَفَعَ اللهُ بِهِ فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ\n\n(Barakallahu fii 'umrihi wa nafa'allahu bihi fid-diini wad-dunya wal-aakhirah)\n\nSemoga di usia yang penuh keberkahan ini, Allah SWT senantiasa melimpahkan kesehatan, ketenangan jiwa, serta menjadikan sisa usia beliau semakin bernilai ibadah.\n\n[SENDER]",
+                "Selamat bertambah usia kagem [TARGET] 🌸🌿\n\nاللَّهُمَّ طَوِّيلْ عُمْرَهُ فِي طَاعَتِكَ وَعَافِهِ فِي بَدَنِهِ وَوَسِّعْ رِزْقَهُ وَاخْتِمْ لَهُ بِالصَّالِحَاتِ\n\n(Allahumma thawwil 'umrahu fii thaa'atika wa 'aafihi fii badanihi wa wassi' rizqahu wakhtim lahu bish-shaalihaat)\n\nSemoga Allah SWT senantiasa memberikan kekuatan jasmani dan rohani, memanjangkan umur dalam ketaatan, serta mengaruniakan kebahagiaan lahir dan batin bersama keluarga tercinta.\n\n[SENDER]",
+                "Selamat Ulang Tahun kagem [TARGET] 🤲🌟\n\nاللَّهُمَّ إنَّا نَسْأَلُكَ العَفْوَ وَالعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ وَارْزُقْهُ حُسْنَ الْخَاتِمَةِ\n\n(Allahumma inna nas'alukal 'afwa wal 'aafiyata fid-dunya wal aakhirah warzuqhu husnal khaatimah)\n\nSemoga Allah SWT senantiasa mengaruniakan kesehatan yang sempurna, perlindungan, kemudahan dalam setiap langkah, serta keberkahan rezeki di usia emas ini. Aamiin YRA.\n\n[SENDER]",
+                "Selamat Milad / Bertambah Usia kagem [TARGET] 🌿✨\n\nاللَّهُمَّ اجْعَلْ خَيْرَ عُمْرِهِ آخِرَهُ وَخَيْرَ عَمَلِهِ خَوَاتِيمَهُ وَخَيْرَ أَيَّامِهِ يَوْمَ يَلْقَاكَ\n\n(Allahummaj'al khaira 'umrihi aakhirahu wa khaira 'amalihi khawaatiimahu wa khaira ayyaamihi yauma yalqaak)\n\nSemoga di umur bertambah ini, Allah jadikan akhir usianya sebagai masa terbaik, selalu dianugerahi kesabaran, kesehatan, dan senantiasa berada dalam lindungan-Nya.\n\n[SENDER]"
+            ],
+            female: [
+                "Selamat Milad / Ulang Tahun kagem [TARGET] 🤲✨\n\nبَارَكَ اللهُ فِي عُمْرِهَا وَنَفَعَ اللهُ بِهَا فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ\n\n(Barakallahu fii 'umrihaa wa nafa'allahu bihaa fid-diini wad-dunya wal-aakhirah)\n\nSemoga di usia yang penuh keberkahan ini, Allah SWT senantiasa melimpahkan kesehatan, ketenangan jiwa, serta menjadikan sisa usia beliau semakin bernilai ibadah.\n\n[SENDER]",
+                "Selamat bertambah usia kagem [TARGET] 🌸🌿\n\nاللَّهُمَّ طَوِّيلْ عُمْرَهَا فِي طَاعَتِكِ وَعَافِهَا فِي بَدَنِهَا وَوَسِّعْ رِزْقَهَا وَاخْتِمْ لَهَا بِالصَّالِحَاتِ\n\n(Allahumma thawwil 'umrahaa fii thaa'atika wa 'aafihaa fii badanihaa wa wassi' rizqahaa wakhtim lahaa bish-shaalihaat)\n\nSemoga Allah SWT senantiasa memberikan kekuatan jasmani dan rohani, memanjangkan umur dalam ketaatan, serta mengaruniakan kebahagiaan lahir dan batin bersama keluarga tercinta.\n\n[SENDER]",
+                "Selamat Ulang Tahun kagem [TARGET] 🤲🌟\n\nاللَّهُمَّ إنَّا نَسْأَلُكَ العَفْوَ وَالعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ وَارْزُقْهَا حُسْنَ الْخَاتِمَةِ\n\n(Allahumma inna nas'alukal 'afwa wal 'aafiyata fid-dunya wal aakhirah warzuqhaa husnal khaatimah)\n\nSemoga Allah SWT senantiasa mengaruniakan kesehatan yang sempurna, perlindungan, kemudahan dalam setiap langkah, serta keberkahan rezeki di usia emas ini. Aamiin YRA.\n\n[SENDER]",
+                "Selamat Milad / Bertambah Usia kagem [TARGET] 🌿✨\n\nاللَّهُمَّ اجْعَلْ خَيْرَ عُمْرِهَا آخِرَهُ وَخَيْرَ عَمَلِهَا خَوَاتِيمَهَا وَخَيْرَ أَيَّامِهَا يَوْمَ تَلْقَاكَ\n\n(Allahummaj'al khaira 'umrihaa aakhirahu wa khaira 'amalihaa khawaatiimahaa wa khaira ayyaamihaa yauma talqaak)\n\nSemoga di umur bertambah ini, Allah jadikan akhir usianya sebagai masa terbaik, selalu dianugerahi kesabaran, kesehatan, dan senantiasa berada dalam lindungan-Nya.\n\n[SENDER]"
+            ]
+        };
+
+        // 2. Variasi Doa Belasungkawa / Duka Cita (6 Gaya Redaksi Pria & Wanita)
+        const condolenceVariations = {
+            male: [
+                // Gaya 1: Islami & Khidmat
+                "Innalillahi wa inna ilaihi raji'un 🤲\n\nTurut berduka cita yang mendalam atas wafatnya almarhum [TARGET].\n\nاللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ\n(Allahummaghfirlahu warhamhu wa 'afihi wa'fu 'anhu)\n\nSemoga Allah SWT mengampuni segala dosanya, menerima seluruh amal ibadahnya, serta menempatkan beliau di tempat terbaik di sisi-Nya. Semoga keluarga yang ditinggalkan senantiasa diberikan ketabahan dan keikhlasan. Aamiin YRA.\n\n[SENDER]",
+                // Gaya 2: Formal & Resmi
+                "Innalillahi wa inna ilaihi raji'un.\n\nAtas nama pribadi dan keluarga, kami menyampaikan rasa duka cita yang mendalam atas berpulangnya almarhum [TARGET] ke rahmatullah.\n\nاللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ\n(Allahummaghfirlahu warhamhu wa 'afihi wa'fu 'anhu)\n\nSemoga almarhum mendapat tempat terindah di sisi Tuhan Yang Maha Esa dan keluarga yang ditinggalkan senantiasa diberi kekuatan serta kesabaran.\n\n[SENDER]",
+                // Gaya 3: Hangat & Penuh Empati (Personal)
+                "Innalillahi wa inna ilaihi raji'un 🕊️\n\nKami sangat kehilangan atas kepergian almarhum [TARGET]. Beliau adalah sosok yang sangat baik dan menginspirasi kita semua.\n\nاللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ\n(Allahummaghfirlahu warhamhu wa 'afihi wa'fu 'anhu)\n\nSemoga Allah SWT menerima seluruh kebaikan almarhum dan menempatkannya di surga-Nya. Kami berdoa agar kamu dan keluarga diberikan kekuatan serta ketabahan yang luar biasa.\n\n[SENDER]",
+                // Gaya 4: Singkat & Menyentuh
+                "Innalillahi wa inna ilaihi raji'un.\n\nTurut berduka cita yang mendalam atas berpulangnya almarhum [TARGET] ke rahmatullah.\n\nاللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ\n(Allahummaghfirlahu warhamhu wa 'afihi wa'fu 'anhu)\n\nSemoga almarhum husnul khotimah, diampuni segala dosanya, dan keluarga yang ditinggalkan diberi ketabahan.\n\n[SENDER]",
+                // Gaya 5: Puitis & Bermakna
+                "Innalillahi wa inna ilaihi raji'un 🌿\n\nSetiap yang bernyawa pasti akan kembali kepada Sang Pencipta. Selamat jalan almarhum [TARGET], jejak kebaikan dan kedermawananmu akan selalu kami kenang.\n\nاللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ\n(Allahummaghfirlahu warhamhu wa 'afihi wa'fu 'anhu)\n\nSemoga Allah memelukmu dalam kasih dan ampunan-Nya, serta menguatkan hati keluarga yang ditinggalkan.\n\n[SENDER]",
+                // Gaya 6: Penguatan & Penyejuk Hati
+                "Innalillahi wa inna ilaihi raji'un 🤲\n\nRasa duka ini amat mendalam, namun takdir Allah adalah yang terbaik. Mari kita iringi kepergian almarhum [TARGET] dengan doa terbaik:\n\nاللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ\n(Allahummaghfirlahu warhamhu wa 'afihi wa'fu 'anhu)\n\nSemoga Allah melapangkan kuburnya, menerangi jalannya, dan memberikan kesabaran melimpah bagi seluruh keluarga.\n\n[SENDER]"
+            ],
+            female: [
+                // Gaya 1: Islami & Khidmat
+                "Innalillahi wa inna ilaihi raji'un 🤲\n\nTurut berduka cita yang mendalam atas wafatnya almarhumah [TARGET].\n\nاللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَعَافِهَا وَاعْفُ عَنْهَا\n(Allahummaghfirlaha warhamha wa 'afiha wa'fu 'anha)\n\nSemoga Allah SWT mengampuni segala dosanya, menerima seluruh amal ibadahnya, serta menempatkan beliau di tempat terbaik di sisi-Nya. Semoga keluarga yang ditinggalkan senantiasa diberikan ketabahan dan keikhlasan. Aamiin YRA.\n\n[SENDER]",
+                // Gaya 2: Formal & Resmi
+                "Innalillahi wa inna ilaihi raji'un.\n\nAtas nama pribadi dan keluarga, kami menyampaikan rasa duka cita yang mendalam atas berpulangnya almarhumah [TARGET] ke rahmatullah.\n\nاللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَعَافِهَا وَاعْفُ عَنْهَا\n(Allahummaghfirlaha warhamha wa 'afiha wa'fu 'anha)\n\nSemoga almarhumah mendapat tempat terindah di sisi Tuhan Yang Maha Esa dan keluarga yang ditinggalkan senantiasa diberi kekuatan serta kesabaran.\n\n[SENDER]",
+                // Gaya 3: Hangat & Penuh Empati (Personal)
+                "Innalillahi wa inna ilaihi raji'un 🕊️\n\nKami sangat kehilangan atas kepergian almarhumah [TARGET]. Beliau adalah sosok yang sangat baik dan menginspirasi kita semua.\n\nاللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَعَافِهَا وَاعْفُ عَنْهَا\n(Allahummaghfirlaha warhamha wa 'afiha wa'fu 'anha)\n\nSemoga Allah SWT menerima seluruh kebaikan almarhumah dan menempatkannya di surga-Nya. Kami berdoa agar kamu dan keluarga diberikan kekuatan serta ketabahan yang luar biasa.\n\n[SENDER]",
+                // Gaya 4: Singkat & Menyentuh
+                "Innalillahi wa inna ilaihi raji'un.\n\nTurut berduka cita yang mendalam atas berpulangnya almarhumah [TARGET] ke rahmatullah.\n\nاللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَعَافِهَا وَاعْفُ عَنْهَا\n(Allahummaghfirlaha warhamha wa 'afiha wa'fu 'anha)\n\nSemoga almarhumah husnul khotimah, diampuni segala dosanya, dan keluarga yang ditinggalkan diberi ketabahan.\n\n[SENDER]",
+                // Gaya 5: Puitis & Bermakna
+                "Innalillahi wa inna ilaihi raji'un 🌿\n\nSetiap yang bernyawa pasti akan kembali kepada Sang Pencipta. Selamat jalan almarhumah [TARGET], jejak kebaikan dan kedermawananmu akan selalu kami kenang.\n\nاللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَعَافِهَا وَاعْفُ عَنْهَا\n(Allahummaghfirlaha warhamha wa 'afiha wa'fu 'anha)\n\nSemoga Allah memelukmu dalam kasih dan ampunan-Nya, serta menguatkan hati keluarga yang ditinggalkan.\n\n[SENDER]",
+                // Gaya 6: Penguatan & Penyejuk Hati
+                "Innalillahi wa inna ilaihi raji'un 🤲\n\nRasa duka ini amat mendalam, namun takdir Allah adalah yang terbaik. Mari kita iringi kepergian almarhumah [TARGET] dengan doa terbaik:\n\nاللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَعَافِهَا وَاعْفُ عَنْهَا\n(Allahummaghfirlaha warhamha wa 'afiha wa'fu 'anha)\n\nSemoga Allah melapangkan kuburnya, menerangi jalannya, dan memberikan kesabaran melimpah bagi seluruh keluarga.\n\n[SENDER]"
+            ]
+        };
+
+        const staticTemplates = {
+            birthday_elder_jv: "Sugeng ambal warsa kagem [TARGET] 🤲✨\n\nبَارَكَ اللهُ فِي عُمْرِهِ وَنَفَعَ اللهُ بِهِ فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ\n\nMugi-mugi ing umur ingkang berkaah punika, Gusti Allah SWT tansah maringi kasarasan, jembar rezekinipun, katentreman atine, sarta berkah umuripun kagem kulawarga lan sesami. Aamiin YRA.\n\n[SENDER]",
+            sick_id: "Syafakallah / Syafakillah untuk [TARGET] 🤲✨\n\nاللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِ أَنْتَ الشَّافِي لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ شِفَاءً لاَ يُغَادِرُ سَقَمًا\n\nSemoga Allah SWT melimpahkan kesembuhan yang sempurna dan mengembalikan kesehatan [TARGET] seperti sediakala.\n\n[SENDER]",
+            birthday_id: "Barakallah fii umrik untuk [TARGET]!\n\nSemoga di usia yang baru ini senantiasa diberikan kesehatan, keberkahan hidup, dimudahkan segala urusannya, serta tercapai semua hajatnya. Aamiin!\n\n[SENDER]",
+            birthday_jv: "Sugeng tanggap warsa kagem [TARGET]!\n\nMugi-mugi tansah pinaringan séhat walafiat, berkah rezekipun, panjang umure, lan sembarang kalir kelampahan sedaya gagasane. Aamiin.\n\n[SENDER]",
+            eid_id: "Selamat Hari Raya Idul Fitri untuk [TARGET]. Mohon maaf lahir dan batin. Semoga Allah menerima seluruh amal ibadah kita. Aamiin.\n\n[SENDER]",
+            eid_jv: "Taqabbalallahu minna wa minkum. Ngaturaken sugeng riyadi Idul Fitri kagem [TARGET]. Mohon maaf lahir lan batin bilih wonten kelepatan. Mugi tansah pinaringan wilujeng.\n\n[SENDER]",
+            
+            // 4 Tambahan Redaksi Universal & Elegan (Tanpa Doa Arab)
+            birthday_universal_elegan: "Selamat Bertambah Usia untuk [TARGET] 🥂✨\n\nDi momen yang istimewa ini, kami mendoakan agar senantiasa dilimpahi kesehatan yang prima, ketenangan jiwa, serta kebahagiaan yang tak pernah putus.\n\nSemoga langkah-langkah di masa depan selalu dipenuhi keberhasilan, kedamaian, dan kehangatan di tengah keluarga tercinta.\n\n[SENDER]",
+            birthday_universal_hangat: "Selamat Ulang Tahun kagem [TARGET] 💐🌿\n\nSetiap tahun yang berlalu adalah bukti kebaikan, kebijaksanaan, dan dedikasi luar biasa yang telah dirajut. Semoga di usia yang semakin matang ini, senantiasa dianugerahi tubuh yang sehat, pikiran yang jernih, dan kedamaian hati.\n\nTerima kasih atas segala inspirasi dan teladan baik yang selalu diberikan kepada kami semua.\n\n[SENDER]",
+            birthday_universal_puitis: "Selamat Ulang Tahun untuk [TARGET] 🌸🌟\n\nSeperti keindahan perjalanan waktu, semoga usia yang baru ini membawa harmoni, sukacita, dan harapan-harapan baru yang terwujud dengan indah.\n\nSemoga panjang umur dalam kebahagiaan, selalu dikelilingi oleh orang-orang yang tulus menyayangi, dan dilindungi dari segala marabahaya.\n\n[SENDER]",
+            birthday_universal_singkat: "Selamat Bertambah Usia untuk [TARGET] 🎉✨\n\nDoa terbaik kami untuk kesehatan, kebahagiaan, dan kesuksesan yang berlimpah di sepanjang perjalanan hidup ke depan.\n\nSemoga senantiasa menjadi sosok pengayom yang penuh kehangatan dan selalu dalam keberkahan hidup.\n\n[SENDER]"
+        };
+
+        // DOM Elements
+        const templateSelect = document.getElementById('templateSelect');
+        const genderSelect = document.getElementById('genderSelect');
+        const genderGroup = document.getElementById('genderGroup');
+        const genderLabel = document.getElementById('genderLabel');
+        const targetLabel = document.getElementById('targetLabel');
+        const targetInput = document.getElementById('targetInput');
+        const senderInput = document.getElementById('senderInput');
+        const resultText = document.getElementById('resultText');
+        const randomBtn = document.getElementById('randomBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const copyAlert = document.getElementById('copyAlert');
+
+        let currentIndex = 0;
+
+        function generateMessage() {
+            const category = templateSelect.value;
+            const gender = genderSelect.value;
+            const target = targetInput.value.trim() || 'Bpk/Ibu';
+            const sender = senderInput.value.trim() ? `Salam hangat,\n${senderInput.value.trim()}` : '';
+
+            let rawText = '';
+
+            if (category === 'condolence_id') {
+                genderGroup.style.display = 'flex';
+                if (genderLabel) genderLabel.textContent = 'Jenis Kelamin Jenazah (Dhomir Doa Arab)';
+                if (targetLabel) targetLabel.textContent = 'Nama Almarhum / Almarhumah';
+                const list = condolenceVariations[gender];
+                rawText = list[currentIndex % list.length];
+            } else if (category === 'birthday_elder_id') {
+                genderGroup.style.display = 'flex';
+                if (genderLabel) genderLabel.textContent = 'Jenis Kelamin Yang Berulang Tahun (Dhomir Doa Arab)';
+                if (targetLabel) targetLabel.textContent = 'Nama Yang Berulang Tahun / Penerima';
+                const list = birthdayElderVariations[gender];
+                rawText = list[currentIndex % list.length];
+            } else {
+                genderGroup.style.display = 'none';
+                if (targetLabel) targetLabel.textContent = 'Nama Yang Berulang Tahun / Penerima';
+                rawText = staticTemplates[category] || '';
+            }
+
+            // Replace Placeholders
+            let finalMessage = rawText.replace(/\[TARGET\]/g, target);
+            finalMessage = finalMessage.replace(/\[SENDER\]/g, sender);
+
+            resultText.value = finalMessage.trim();
+        }
+
+        // Event Listeners
+        templateSelect.addEventListener('change', () => {
+            currentIndex = 0;
+            generateMessage();
+        });
+
+        genderSelect.addEventListener('change', () => {
+            generateMessage();
+        });
+
+        targetInput.addEventListener('input', generateMessage);
+        senderInput.addEventListener('input', generateMessage);
+
+        randomBtn.addEventListener('click', () => {
+            currentIndex++;
+            generateMessage();
+        });
+
+        copyBtn.addEventListener('click', () => {
+            resultText.select();
+            document.execCommand('copy');
+            copyAlert.style.display = 'block';
+            setTimeout(() => {
+                copyAlert.style.display = 'none';
+            }, 2500);
+        });
+
+        resetBtn.addEventListener('click', () => {
+            targetInput.value = 'Bpk. H. Ahmad';
+            senderInput.value = 'Fatur dan keluarga';
+            templateSelect.value = 'condolence_id';
+            genderSelect.value = 'male';
+            currentIndex = 0;
+            generateMessage();
+        });
+
+        // Unicode Conversion logic
+        document.querySelectorAll('.btn-unicode').forEach(button => {
+            button.addEventListener('click', () => {
+                const style = button.getAttribute('data-style');
+                let text = resultText.value;
+
+                if (style === 'bold') {
+                    text = text.replace(/[a-zA-Z0-9]/g, char => {
+                        const code = char.charCodeAt(0);
+                        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D5D4 + code - 65);
+                        if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D5EE + code - 97);
+                        if (code >= 48 && code <= 57) return String.fromCodePoint(0x1D7EC + code - 48);
+                        return char;
+                    });
+                } else if (style === 'italic') {
+                    text = text.replace(/[a-zA-Z]/g, char => {
+                        const code = char.charCodeAt(0);
+                        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D608 + code - 65);
+                        if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D622 + code - 97);
+                        return char;
+                    });
+                } else if (style === 'mono') {
+                    text = text.replace(/[a-zA-Z0-9]/g, char => {
+                        const code = char.charCodeAt(0);
+                        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D670 + code - 65);
+                        if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D68A + code - 97);
+                        if (code >= 48 && code <= 57) return String.fromCodePoint(0x1D7F6 + code - 48);
+                        return char;
+                    });
+                }
+
+                resultText.value = text;
+            });
+        });
+
+        // Jalankan render awal saat halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', generateMessage);
+    </script>
+</body>
+</html>
